@@ -1,0 +1,68 @@
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+ 
+# Your preferred terminal emulator
+set $term kitty
+set $laptop eDP-1
+set $font JetBrainsMono Nerd Font 10
+
+# Your preferred application launcher
+# Note: pass the final command to swaymsg so that the resulting window can be opened
+# on the original workspace that the command was run on.
+set $menu dmenu_path | dmenu | xargs swaymsg exec --
+
+font $font
+
+set $bg #5a524c
+set $fg #d4be98
+set $br #89b482
+
+set $padding 2
+
+include /etc/sway/config-vars.d/*
+
+gaps inner $padding 
+gaps outer $padding 
+
+### Output configuration
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output {
+	* bg /home/munkus/Pictures/wallpapers/lake-town.jpg stretch
+	$laptop position 0,0
+	HDMI-A-1 position 1920,0
+}
+
+# class                 border  backgr. text    indicator child_border
+client.focused          $br     $br     $fg     $bg       $br
+client.focused_inactive $bg     $bg     $fg     $bg       $bg
+client.unfocused        $bg     $bg     $fg     $bg       $bg
+#client.urgent          $br     $br     $fg     $bg       $br #currently not implemented
+#client.placeholder     $br     $br     $fg     $bg       $br #currently not implemented
+client.background $bg
+
+default_border pixel 2 
+
+### Key bindings
+include bindings
+
+## scratchpad terminal
+
+# exec $term --name=scratch_term
+# for_window [app_id="^scratch_term$"] move to scratchpad
+
+
+# Status Bar:
+bar {
+    swaybar_command waybar
+}
+
+include /etc/sway/config.d/*

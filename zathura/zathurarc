@@ -1,0 +1,7 @@
+map <C-i> recolor
+
+set default-bg "#1d2021"
+set default-fg "#d4be98"
+
+set recolor-lightcolor  "#1d2021"
+set recolor-darkcolor "#d4be98"
