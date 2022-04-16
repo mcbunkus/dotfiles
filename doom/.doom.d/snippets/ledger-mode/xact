@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: xact
+# uuid:
+# key: trigger-key
+# condition:
+# --
+
+`(format-time-string "%Y/%m/%d")` * $0

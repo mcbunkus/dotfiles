@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: book synopsis
+# uuid: book-synopsis
+# key: trigger-key
+# condition: t
+# --
+
+#+TITLE:  $0
+#+AUTHOR: $1
+
+* Synopsis:
+  $3

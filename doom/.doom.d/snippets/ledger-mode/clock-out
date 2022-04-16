@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: clock out
+# uuid: clock-out
+# key: trigger-key
+# condition: t
+# --
+
+
+o `(format-time-string "%Y/%m/%d %H:%M:%S")`
