@@ -36,7 +36,7 @@ gaps outer $padding
 ### Output configuration
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output {
-	* bg /home/munkus/Pictures/wallpapers/lake-town.jpg stretch
+	* bg /usr/share/backgrounds/gnome/blobs-d.svg stretch
 	$laptop position 0,0
 	HDMI-A-1 position 1920,0
 }
