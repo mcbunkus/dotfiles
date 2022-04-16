@@ -1,0 +1,24 @@
+# Exports
+
+export PATH=$PATH:$HOME/.local/bin
+export EDITOR="hx"
+
+
+# Functions
+
+function source_path {
+    [ -f $1 ] && source $1
+}
+
+
+# Sources
+
+source_path $HOME/.cargo/env
+source_path $HOME/.config/alacritty/extra/completions/alacritty.bash 
+source_path $HOME/.config/bash/aliases
+
+
+# Anything that needs to be done at the end 
+
+eval "$(starship init bash)"
+
