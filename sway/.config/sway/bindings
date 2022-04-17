@@ -142,3 +142,10 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
+# screen captures
+
+# Take a screenshot with all output and save it into screenshots
+bindsym Print exec grim -t png ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
+
+# Take a Screenshot with the region select
+bindsym $mod+Print exec grim -t png -g "$(slurp)" ~/screenshots/$(date +%Y-%m-%d_%H-%m-%s).png
