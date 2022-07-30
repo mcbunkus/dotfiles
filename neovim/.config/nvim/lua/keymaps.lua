@@ -1,23 +1,35 @@
+-- Keybindings
+
+local telescope_builtin = require("telescope.builtin")
+local nt_api = require("nvim-tree.api")
+
+-- leader key and mouse
 vim.g.mapleader = " "
+vim.cmd([[set mouse=a]])
 
--- Movement
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- window management
+vim.keymap.set("n", "<C-h>", "<C-W>h")
+vim.keymap.set("n", "<C-j>", "<C-W>j")
+vim.keymap.set("n", "<C-k>", "<C-W>k")
+vim.keymap.set("n", "<C-l>", "<C-W>l")
 
+-- splitting
+vim.keymap.set("n", "<leader>s", "<cmd>split<cr>")
+vim.keymap.set("n", "<leader>v", "<cmd>vsplit<cr>")
 
--- Split management
-vim.keymap.set("n", "<leader>v", ":vsplit <CR>")
-vim.keymap.set("n", "<leader>h", ":split <CR>")
+-- closing
+vim.keymap.set("n", "<leader>c", "<cmd>close<cr>")
 
--- Telescope :)
-vim.keymap.set("n", "<leader>ff", ":Telescope find_files <CR>")
-vim.keymap.set("n", "<leader>fb", ":Telescope buffers <CR>")
-vim.keymap.set("n", "<leader>fw", ":Telescope lsp_workspace_symbols <CR>")
-vim.keymap.set("n", "<leader>fd", ":Telescope diagnostics <CR>")
-vim.keymap.set("n", "<leader>fs", ":Telescope symbols <CR>")
-vim.keymap.set("n", "<leader>fc", ":Telescope colorscheme <CR>")
+-- buffer stuff
+vim.keymap.set("n", "H", "<cmd>bprevious<cr>")
+vim.keymap.set("n", "L", "<cmd>bnext<cr>")
+vim.keymap.set("n", "<leader>bc", "<cmd>bdelete<cr>")
 
--- nvim-tree
-vim.keymap.set("n", "<leader>t", ":NvimTreeToggle <CR>")
+-- Telescope bindings
+vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files)
+vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep)
+vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers)
+vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags)
+
+-- open nvim-tree
+vim.keymap.set("n", "<leader>e", nt_api.tree.focus)
