@@ -1,77 +1,56 @@
-
 * {
-    border: none;
-    border-radius: 0;
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: JetBrainsMono Nerd Font;
-    font-size: 12px;
-    min-height: 0;
+  border: none;
+  border-radius: 0;
+  /* `otf-font-awesome` is required to be installed for icons */
+  font-family: JetBrainsMono Nerd Font;
+  font-size: 12px;
+  min-height: 0;
 }
-
-
 
 window#waybar {
-    background-color: #1d2021;
-    border-bottom: none;
-    color: #d4be98;
-    transition-property: background-color;
-    transition-duration: .5s;
+  /* background-color: #1a1a24; */
+  border-bottom: none;
+  color: #a7b7d6;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
-
 
 window#waybar.hidden {
-    opacity: 1.0;
-}
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
+  opacity: 1;
 }
 
 #workspaces {
-    padding-right: 12px;
-        padding-left: 6px;
+  padding-right: 12px;
+  padding-left: 6px;
 }
 
 #workspaces button {
-    padding: 0;
-    color: #d4be98;
-    /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -1px transparent;
-    padding: 0 4px;
-    font-weight: 100;
+  padding: 0;
+  color: #a7b7d6;
+
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -1px transparent;
+  padding: 0 4px;
+  font-weight: 100;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-    box-shadow: inset 0 -1px #d8dee9;
+  box-shadow: inset 0 -2px #a7b7d6;
 }
 
 #workspaces button.focused {
-    color: #89b482;
-    font-weight: 900;
+  color: #ebb9b9;
+  font-weight: 900;
 }
 
 #workspaces button.urgent {
-    background-color: #bf616a;
+  background-color: #de956f;
 }
 
 #mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+  background-color: #64727d;
+  border-bottom: 3px solid #ffffff;
 }
 
 #custom-clock,
@@ -87,106 +66,106 @@ window#waybar.chromium {
 #mode,
 #idle_inhibitor,
 #mpd {
-    border-radius: 128px;
-    padding-right: 16px;
-    padding-left: 4px;
-    color: #2e3440;
+  border-radius: 0px;
+  padding-right: 16px;
+  padding-left: 4px;
+  color: #2e3440;
 }
 
 #window {
-    color: #a9b665;
+  color: #ebb9b9;
 }
 
 #battery {
-    color: #d3869b;
+  color: #b1dba4;
 }
 
 #battery.charging {
-    color: #a9b665;
+  color: #b8dceb;
 }
 
 @keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
 }
 
 #battery.critical:not(.charging) {
-    color: #f53c3c;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+  color: #de956f;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 label:focus {
-    background-color: #000000;
+  background-color: #000000;
 }
 
 #custom-clock {
-    color: #ea6962;
+  color: #eac1c1;
 }
 
 #cpu {
-    color: #d8a657;
+  color: #f6bbe7;
 }
 
 #memory {
-    color: #7daea3;
+  color: #b8dceb;
 }
 
 #backlight {
-    color: #7daea3;
+  color: #a7b7d6;
 }
 
 #network {
-    color: #89b482;
+  color: #c8cca7;
 }
 
 #network.disconnected {
-    color: #f53c3c;
+  color: #de956f;
 }
 
 #pulseaudio {
-    color: #e78a4e;
+  color: #b1dba4;
 }
 
 #pulseaudio.muted {
-    color: #ddc7a1;
+  color: #ddc7a1;
 }
 
 #custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
+  background-color: #66cc99;
+  color: #2a5c45;
+  min-width: 100px;
 }
 
 #custom-media.custom-spotify {
-    background-color: #66cc99;
+  background-color: #66cc99;
 }
 
 #custom-media.custom-vlc {
-    background-color: #ffa000;
+  background-color: #ffa000;
 }
 
 #temperature {
-    color: #e78a4e;
+  color: #63718b;
 }
 
 #temperature.critical {
-    color: #ea6962;
+  color: #de956f;
 }
 
 #tray {
-    color: #2980b9;
+  color: #63718b;
 }
 
 #idle_inhibitor {
-    color: #d4be98;
+  color: #d4be98;
 }
 
 #idle_inhibitor.activated {
-    color: #89b482;
+  color: #89b482;
 }

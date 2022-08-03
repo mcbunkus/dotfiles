@@ -11,28 +11,26 @@ set $up k
 set $right l
  
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 set $laptop eDP-1
 set $font JetBrainsMono Nerd Font 10
 
-
 font $font
 
-set $bg #5a524c
-set $fg #d4be98
-set $br #89b482
+set $bg #1a1a24
+set $fg #a7b7d6
+set $br #ebb9b9
 
-set $padding 2
 
 include /etc/sway/config-vars.d/*
 
-gaps inner $padding 
-gaps outer $padding 
+gaps inner 8
+gaps outer 2
 
 ### Output configuration
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output {
-	* bg $HOME/.config/sway/wallpapers/blobs-d.svg stretch
+	* bg $HOME/.config/sway/wallpapers/flowers.jpg fill
 	$laptop position 0,0
 	HDMI-A-1 position 1920,0
 }
@@ -45,12 +43,12 @@ client.unfocused        $bg     $bg     $fg     $bg       $bg
 #client.placeholder     $br     $br     $fg     $bg       $br #currently not implemented
 client.background $bg
 
-default_border pixel 2 
+default_border pixel 3
 
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu -p '❯' -sb "$br" -sf "#282828" -fn "JetBrainsMono Nerd Font-12" | xargs swaymsg exec --
+set $menu tofi-drun --drun-print-exec=true | xargs swaymsg exec --
 
 ### Key bindings
 include bindings

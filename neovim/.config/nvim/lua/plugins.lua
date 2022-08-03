@@ -12,24 +12,29 @@ return require("packer").startup(function(use)
 
 	use({
 		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
+		requires = {
+			"williamboman/mason-lspconfig.nvim",
+			"neovim/nvim-lspconfig",
+		},
 	})
 
+	-- colorschemes
 	use({ "FrenzyExists/aquarium-vim" })
+	use({ "catppuccin/nvim", as = "catppuccin" })
 
 	-- completion stuff
 	use({
-		"neovim/nvim-lspconfig",
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
 		"hrsh7th/nvim-cmp",
-		"L3MON4D3/LuaSnip",
-		"saadparwaiz1/cmp_luasnip",
+		requires = {
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
+			"L3MON4D3/LuaSnip",
+			"saadparwaiz1/cmp_luasnip",
+			"hrsh7th/cmp-nvim-lua",
+		},
 	})
-
-	use("rafamadriz/neon")
 
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -39,7 +44,7 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
-		requires = { { "nvim-lua/plenary.nvim" } },
+		requires = { "nvim-lua/plenary.nvim" },
 	})
 
 	-- using packer.nvim
@@ -58,4 +63,8 @@ return require("packer").startup(function(use)
 	})
 
 	use({ "windwp/nvim-autopairs" })
+
+	use({ "vimwiki/vimwiki" })
+
+	use({ use("terrortylor/nvim-comment") })
 end)

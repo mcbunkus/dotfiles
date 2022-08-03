@@ -21,3 +21,7 @@ lspconfig.clangd.setup({
 lspconfig.bashls.setup({
 	capabilities = capabilities,
 })
+
+lspconfig.gopls.setup({
+	capabilities = capabilities,
+})
