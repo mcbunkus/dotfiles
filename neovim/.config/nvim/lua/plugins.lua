@@ -38,7 +38,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		requires = { "kyazdani42/nvim-web-devicons" },
 	})
 
 	use({
@@ -59,12 +59,15 @@ return require("packer").startup(function(use)
 		requires = {
 			"kyazdani42/nvim-web-devicons", -- optional, for file icons
 		},
-		tag = "nightly", -- optional, updated every week. (see issue #1193)
 	})
 
 	use({ "windwp/nvim-autopairs" })
 
 	use({ "vimwiki/vimwiki" })
 
-	use({ use("terrortylor/nvim-comment") })
+	use({ "numToStr/Comment.nvim" })
+
+	use({ "Pocco81/true-zen.nvim" })
+
+	use({ "ahmedkhalf/project.nvim" })
 end)

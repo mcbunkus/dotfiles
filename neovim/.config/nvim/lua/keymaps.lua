@@ -1,7 +1,9 @@
 -- Keybindings
 
-local telescope_builtin = require("telescope.builtin")
-local nt_api = require("nvim-tree.api")
+local telescope = require("telescope")
+local ntapi = require("nvim-tree.api")
+
+local builtins = require("telescope.builtin")
 
 -- leader key and mouse
 vim.g.mapleader = " "
@@ -28,22 +30,24 @@ vim.keymap.set("n", "L", "<cmd>bnext<cr>")
 vim.keymap.set("n", "<leader>d", "<cmd>bp<bar>bd#<cr>")
 
 -- Telescope bindings
-vim.keymap.set("n", "<leader>ff", telescope_builtin.find_files)
-vim.keymap.set("n", "<leader>fg", telescope_builtin.live_grep)
-vim.keymap.set("n", "<leader>fb", telescope_builtin.buffers)
-vim.keymap.set("n", "<leader>fc", telescope_builtin.colorscheme)
-vim.keymap.set("n", "<leader>fh", telescope_builtin.help_tags)
-vim.keymap.set("n", "<leader>fr", telescope_builtin.reloader)
-vim.keymap.set("n", "<leader>fk", telescope_builtin.keymaps)
-vim.keymap.set("n", "<leader>ft", telescope_builtin.tags)
-vim.keymap.set("n", "<leader>fs", telescope_builtin.current_buffer_fuzzy_find)
-vim.keymap.set("n", "<leader>lr", telescope_builtin.lsp_references)
-vim.keymap.set("n", "<leader>ld", telescope_builtin.lsp_document_symbols)
-vim.keymap.set("n", "<leader>lw", telescope_builtin.lsp_workspace_symbols)
+vim.keymap.set("n", "<leader>ff", builtins.find_files)
+vim.keymap.set("n", "<leader>fg", builtins.live_grep)
+vim.keymap.set("n", "<leader>fb", builtins.buffers)
+vim.keymap.set("n", "<leader>fc", builtins.colorscheme)
+vim.keymap.set("n", "<leader>fh", builtins.help_tags)
+vim.keymap.set("n", "<leader>fr", builtins.reloader)
+vim.keymap.set("n", "<leader>fk", builtins.keymaps)
+vim.keymap.set("n", "<leader>ft", builtins.tags)
+vim.keymap.set("n", "<leader>fs", builtins.current_buffer_fuzzy_find)
+vim.keymap.set("n", "<leader>fp", telescope.extensions.projects.projects)
+vim.keymap.set("n", "<leader>fo", builtins.vim_options)
+vim.keymap.set("n", "<leader>lu", builtins.lsp_references)
+vim.keymap.set("n", "<leader>ld", builtins.lsp_document_symbols)
+vim.keymap.set("n", "<leader>lw", builtins.lsp_workspace_symbols)
 
 -- nvim-tree
-vim.keymap.set("n", "<leader>ee", nt_api.tree.toggle)
-vim.keymap.set("n", "<leader>ef", nt_api.tree.focus)
+vim.keymap.set("n", "<leader>ee", ntapi.tree.toggle)
+vim.keymap.set("n", "<leader>ef", ntapi.tree.focus)
 
 -- toggleterm stuff
 vim.keymap.set("n", "<A-i>", "<cmd>ToggleTerm direction=float<cr>")
@@ -53,3 +57,9 @@ vim.keymap.set("n", "<A-v>", "<cmd>ToggleTerm size=80 direction=vertical<cr>")
 vim.keymap.set("t", "<A-i>", "<cmd>ToggleTerm<cr>")
 vim.keymap.set("t", "<A-h>", "<cmd>ToggleTerm<cr>")
 vim.keymap.set("t", "<A-v>", "<cmd>ToggleTerm<cr>")
+
+-- lsp stuff
+vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename)
+vim.keymap.set("n", "<leader>lk", vim.lsp.buf.hover)
+vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition)
+vim.keymap.set("n", "<leader>ltd", vim.lsp.buf.type_definition)

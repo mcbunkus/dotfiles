@@ -1,6 +1,16 @@
 -- Setup nvim-cmp.
-local cmp = require("cmp")
-local luasnip = require("luasnip")
+local cmp_ok, cmp = pcall(require, "cmp")
+local luasnip_ok, luasnip = pcall(require, "luasnip")
+
+if not cmp_ok then
+	error("couldn't load cmp")
+	return
+end
+
+if not luasnip_ok then
+	error("couldn't load luasnip")
+	return
+end
 
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
