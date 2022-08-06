@@ -36,10 +36,12 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
+	-- use({
+	-- 	"nvim-lualine/lualine.nvim",
+	-- 	requires = { "kyazdani42/nvim-web-devicons" },
+	-- })
+	--
+	use({ "feline-nvim/feline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -70,4 +72,17 @@ return require("packer").startup(function(use)
 	use({ "Pocco81/true-zen.nvim" })
 
 	use({ "ahmedkhalf/project.nvim" })
+
+	use({ "RRethy/nvim-base16" })
+
+	use({ "ray-x/lsp_signature.nvim" })
+
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
+
+	use({ "folke/which-key.nvim" })
 end)
