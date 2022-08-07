@@ -28,8 +28,7 @@
      ("payee" "%(binary) -f %(ledger-file) reg @%(payee)")
      ("account" "%(binary) -f %(ledger-file) reg %(account)")))
  '(objed-cursor-color "#fb4934")
- '(org-agenda-files
-   '("/home/munkus/org/roam/20220207201158-compressor.org" "/home/munkus/org/journal/20220201"))
+ '(org-agenda-files '("~/org/roam/20220502213201-roboxide.org"))
  '(pdf-view-midnight-colors (cons "#ebdbb2" "#32302f"))
  '(rustic-ansi-faces
    ["#32302f" "#fb4934" "#b8bb26" "#fabd2f" "#83a598" "#cc241d" "#8ec07c" "#ebdbb2"])
