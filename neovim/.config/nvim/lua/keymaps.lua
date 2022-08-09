@@ -33,7 +33,7 @@ local function colorschemes()
 	builtins.colorscheme({ enable_preview = true })
 end
 
-local function edit_configs()
+local function open_configs()
 	builtins.find_files({ cwd = "~/.config/nvim" })
 end
 
@@ -51,7 +51,7 @@ wk.register({
 		t = { builtins.tags, "Tags" },
 		s = { builtins.current_buffer_fuzzy_find, "Buffer" },
 		o = { builtins.vim_options, "Options" },
-		d = { edit_configs, "Open Configs" },
+		d = { open_configs, "Edit Config" },
 	},
 	l = {
 		name = "Telescope LSP",
