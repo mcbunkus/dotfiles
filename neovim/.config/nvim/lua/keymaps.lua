@@ -50,7 +50,6 @@ wk.register({
 		k = { builtins.keymaps, "Keymaps" },
 		t = { builtins.tags, "Tags" },
 		s = { builtins.current_buffer_fuzzy_find, "Buffer" },
-		p = { telescope.extensions.projects.projects, "Projects" },
 		o = { builtins.vim_options, "Options" },
 		d = { edit_configs, "Open Configs" },
 	},

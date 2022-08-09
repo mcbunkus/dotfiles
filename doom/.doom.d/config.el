@@ -1,5 +1,7 @@
 ;;; $DOOMDIR/config.elr private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
+;;
+(add-to-list 'exec-path "/home/munkus/go/bin")
 
 (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 14))
 
@@ -39,37 +41,30 @@
 
 (setq +latex-viewers `(zathura))
 
-;; Org-Roam directory
-(setq org-roam-directory (file-truename "~/org/roam"))
-
-;; Reset Deft directory and loop recursively
-(setq deft-directory "~/org/notes")
-(setq deft-recursive t)
-
-;; Have to manually add poetry path :(
-(setenv "PATH" (concat (getenv "PATH") ":/home/munkus/.poetry/bin"))
 
 ;; org-roam-ui
 (use-package! websocket
-    :after org-roam)
+  :after org-roam)
 
 (use-package! org-roam-ui
-    :after org-roam ;; or :after org
-;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
-;;         a hookable mode anymore, you're advised to pick something yourself
-;;         if you don't care about startup time, use
-;;  :hook (after-init . org-roam-ui-mode)
-    :config
-    (setq org-roam-ui-sync-theme t
-          org-roam-ui-follow t
-          org-roam-ui-update-on-save t
-          org-roam-ui-open-on-start t))
-
+  :after org-roam ;; or :after org
+  ;;         normally we'd recommend hooking orui after org-roam, but since org-roam does not have
+  ;;         a hookable mode anymore, you're advised to pick something yourself
+  ;;         if you don't care about startup time, use
+  ;;  :hook (after-init . org-roam-ui-mode)
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 (after! org
   (map! :map org-mode-map
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup))
+(after! org
+  (setq org-todo-keywords
+        '((sequence "TODO" "IN PROGRESS" "DONE"))))
 
 (add-hook 'org-mode-hook 'turn-off-auto-fill)
 

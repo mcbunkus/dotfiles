@@ -40,6 +40,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
@@ -60,8 +61,6 @@ return require("packer").startup(function(use)
 	use({ "windwp/nvim-autopairs" })
 
 	use({ "numToStr/Comment.nvim" })
-
-	use({ "Pocco81/true-zen.nvim" })
 
 	use({ "ray-x/lsp_signature.nvim" })
 

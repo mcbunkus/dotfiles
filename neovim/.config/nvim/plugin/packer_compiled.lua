@@ -190,11 +190,6 @@ _G.packer_plugins = {
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
-  orgmode = {
-    loaded = true,
-    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/orgmode",
-    url = "https://github.com/nvim-orgmode/orgmode"
-  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -204,11 +199,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
-  },
-  ["project.nvim"] = {
-    loaded = true,
-    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/project.nvim",
-    url = "https://github.com/ahmedkhalf/project.nvim"
   },
   ["telekasten.nvim"] = {
     loaded = true,
@@ -224,11 +214,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  ["true-zen.nvim"] = {
-    loaded = true,
-    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
-    url = "https://github.com/Pocco81/true-zen.nvim"
   },
   ["which-key.nvim"] = {
     loaded = true,
