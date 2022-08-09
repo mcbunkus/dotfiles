@@ -77,6 +77,7 @@ return require("packer").startup(function(use)
 		"renerocksai/telekasten.nvim",
 		requires = {
 			"renerocksai/calendar-vim",
+			"frabjous/knap",
 		},
 	})
 end)
