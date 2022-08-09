@@ -36,16 +36,10 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	-- use({
-	-- 	"nvim-lualine/lualine.nvim",
-	-- 	requires = { "kyazdani42/nvim-web-devicons" },
-	-- })
-	--
 	use({ "feline-nvim/feline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
 	use({
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
@@ -65,15 +59,9 @@ return require("packer").startup(function(use)
 
 	use({ "windwp/nvim-autopairs" })
 
-	use({ "vimwiki/vimwiki" })
-
 	use({ "numToStr/Comment.nvim" })
 
 	use({ "Pocco81/true-zen.nvim" })
-
-	use({ "ahmedkhalf/project.nvim" })
-
-	use({ "RRethy/nvim-base16" })
 
 	use({ "ray-x/lsp_signature.nvim" })
 
@@ -85,4 +73,11 @@ return require("packer").startup(function(use)
 	})
 
 	use({ "folke/which-key.nvim" })
+
+	use({
+		"renerocksai/telekasten.nvim",
+		requires = {
+			"renerocksai/calendar-vim",
+		},
+	})
 end)

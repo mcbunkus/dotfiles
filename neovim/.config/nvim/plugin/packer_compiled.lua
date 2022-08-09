@@ -89,6 +89,11 @@ _G.packer_plugins = {
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["calendar-vim"] = {
+    loaded = true,
+    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/calendar-vim",
+    url = "https://github.com/renerocksai/calendar-vim"
+  },
   catppuccin = {
     loaded = true,
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/catppuccin",
@@ -160,11 +165,6 @@ _G.packer_plugins = {
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
     url = "https://github.com/windwp/nvim-autopairs"
   },
-  ["nvim-base16"] = {
-    loaded = true,
-    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/nvim-base16",
-    url = "https://github.com/RRethy/nvim-base16"
-  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -190,6 +190,11 @@ _G.packer_plugins = {
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
+  orgmode = {
+    loaded = true,
+    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/orgmode",
+    url = "https://github.com/nvim-orgmode/orgmode"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/packer.nvim",
@@ -204,6 +209,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/project.nvim",
     url = "https://github.com/ahmedkhalf/project.nvim"
+  },
+  ["telekasten.nvim"] = {
+    loaded = true,
+    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/telekasten.nvim",
+    url = "https://github.com/renerocksai/telekasten.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -220,10 +230,10 @@ _G.packer_plugins = {
     path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
     url = "https://github.com/Pocco81/true-zen.nvim"
   },
-  vimwiki = {
+  ["which-key.nvim"] = {
     loaded = true,
-    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/vimwiki",
-    url = "https://github.com/vimwiki/vimwiki"
+    path = "/Users/austenlebeau/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

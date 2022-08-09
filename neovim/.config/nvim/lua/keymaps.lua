@@ -1,10 +1,10 @@
 -- Keybindings
 
 local telescope = require("telescope")
+local builtins = require("telescope.builtin")
+local telekasten = require("telekasten")
 local ntapi = require("nvim-tree.api")
 local wk = require("which-key")
-
-local builtins = require("telescope.builtin")
 
 -- leader key and mouse
 vim.g.mapleader = " "
@@ -16,10 +16,12 @@ wk.register({
 	d = { "<cmd>bp<bar>bd#<cr>", "Delete Buffer" },
 	j = { "<cmd>split<bar>wincmd J<cr>", "Split Down" },
 	k = { "<cmd>vsplit<bar>wincmd L<cr>", "Split Right" },
-	H = { "<cmd>bprevious<cr>", "Previous Buffer" },
-	L = { "<cmd>bnext<cr>", "Next Buffer" },
 }, { prefix = "<leader>" })
 
+wk.register({
+	H = { "<cmd>bprevious<cr>", "Previous Buffer" },
+	L = { "<cmd>bnext<cr>", "Next Buffer" },
+})
 -- window management
 vim.keymap.set({ "n", "i" }, "<c-h>", "<c-w>h")
 vim.keymap.set({ "n", "i" }, "<c-j>", "<c-w>j")
@@ -29,6 +31,10 @@ vim.keymap.set({ "n", "i" }, "<c-l>", "<c-w>l")
 -- wrapper for enabling preview of colorschemes
 local function colorschemes()
 	builtins.colorscheme({ enable_preview = true })
+end
+
+local function edit_configs()
+	builtins.find_files({ cwd = "~/.config/nvim" })
 end
 
 -- Telescope bindings
@@ -46,6 +52,7 @@ wk.register({
 		s = { builtins.current_buffer_fuzzy_find, "Buffer" },
 		p = { telescope.extensions.projects.projects, "Projects" },
 		o = { builtins.vim_options, "Options" },
+		d = { edit_configs, "Open Configs" },
 	},
 	l = {
 		name = "Telescope LSP",
@@ -69,6 +76,25 @@ wk.register({
 	["<M-h>"] = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Toggle Horizontal Terminal" },
 	["<M-v>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical Terminal" },
 })
+
+-- telekasten stuff
+wk.register({
+	n = {
+		name = "Telekasten",
+		n = { telekasten.panel, "Panel" },
+		f = { telekasten.find_notes, "Find Notes" },
+		d = { telekasten.find_daily_notes, "Find Daily Notes" },
+		s = { telekasten.search_notes, "Search Notes" },
+		g = { telekasten.follow_link, "Follow Link" },
+		k = { telekasten.insert_link, "Insert Link" },
+		b = { telekasten.show_backlinks, "Show Backlinks" },
+		t = { telekasten.show_tags, "Show Tags" },
+		c = { telekasten.show_calendar, "Show Calendar" },
+		x = { telekasten.toggle_todo, "Toggle Todo" },
+		z = { telekasten.new_note, "Create a New Note" },
+		Z = { telekasten.new_templated_note, "Create a New Note" },
+	},
+}, { prefix = "<leader>" })
 
 -- toggleterm stuff, but in terminal mode
 vim.keymap.set("t", "<A-i>", "<cmd>ToggleTerm<cr>")
