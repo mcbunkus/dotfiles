@@ -1,4 +1,5 @@
-local home = vim.fn.expand("~/Documents/zknotes")
+local home = vim.fn.expand("~/Documents/notes")
+
 -- NOTE for Windows users:
 -- - don't use Windows
 -- - try WSL2 on Windows and pretend you're on Linux
@@ -65,7 +66,7 @@ require("telekasten").setup({
 	image_link_style = "markdown",
 
 	-- default sort option: 'filename', 'modified'
-	sort = "filename",
+	sort = "modified",
 
 	-- integrate with calendar-vim
 	plug_into_calendar = true,

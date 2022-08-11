@@ -11,5 +11,9 @@ vim.o.scrolloff = 25
 -- so aquarium works :)
 vim.o.termguicolors = true
 
+vim.o.laststatus = 3
+
+vim.g.catppuccin_flavour = "mocha"
+
 -- set the colorscheme
-vim.cmd([[colorscheme aquarium]])
+vim.cmd([[colorscheme catppuccin]])

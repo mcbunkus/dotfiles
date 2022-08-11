@@ -4,17 +4,17 @@ if not ok then
 end
 
 local colors = {
-	bg = "#282c34",
-	fg = "#abb2bf",
-	yellow = "#e0af68",
-	cyan = "#56b6c2",
-	darkblue = "#081633",
-	green = "#98c379",
-	orange = "#d19a66",
+	bg = "#20202a",
+	fg = "#cddbf8",
+	yellow = "#e6dfb8",
+	cyan = "#b8dceb",
+	darkblue = "#6a8cbc",
+	green = "#b1dba4",
+	orange = "#c8cca7",
 	violet = "#a9a1e1",
 	magenta = "#c678dd",
 	blue = "#61afef",
-	red = "#e86671",
+	red = "#de956f",
 }
 
 local vi_mode_colors = {
@@ -47,13 +47,7 @@ local function file_osinfo()
 	return icon .. os
 end
 
-local lsp = require("feline.providers.lsp")
 local vi_mode_utils = require("feline.providers.vi_mode")
-
-local lsp_get_diag = function(str)
-	local count = vim.lsp.diagnostic.get_count(0, str)
-	return (count > 0) and " " .. count .. " " or ""
-end
 
 -- LuaFormatter off
 
@@ -74,7 +68,6 @@ local comps = {
 			right_sep = " ",
 		},
 		right = {
-			-- provider = '▊',
 			provider = "",
 			hl = function()
 				local val = {
@@ -154,72 +147,40 @@ local comps = {
 			style = "bold",
 		},
 	},
-	scroll_bar = {
-		provider = "scroll_bar",
-		left_sep = " ",
-		hl = {
-			fg = colors.blue,
-			style = "bold",
-		},
-	},
 	diagnos = {
-		-- err = {
-		-- 	-- provider = 'diagnostic_errors',
-		-- 	provider = function()
-		-- 		return "" .. lsp_get_diag("Error")
-		-- 	end,
-		-- 	-- left_sep = ' ',
-		-- 	enabled = function()
-		-- 		return lsp.diagnostics_exist("Error")
-		-- 	end,
-		-- 	hl = {
-		-- 		fg = colors.red,
-		-- 	},
-		-- },
-		-- warn = {
-		-- 	-- provider = 'diagnostic_warnings',
-		-- 	provider = function()
-		-- 		return "" .. lsp_get_diag("Warn")
-		-- 	end,
-		-- 	-- left_sep = ' ',
-		-- 	enabled = function()
-		-- 		return lsp.diagnostics_exist("Warn")
-		-- 	end,
-		-- 	hl = {
-		-- 		fg = colors.yellow,
-		-- 	},
-		-- },
-		-- info = {
-		-- 	-- provider = 'diagnostic_info',
-		-- 	provider = function()
-		-- 		return "" .. lsp_get_diag("Info")
-		-- 	end,
-		-- 	-- left_sep = ' ',
-		-- 	enabled = function()
-		-- 		return lsp.diagnostics_exist("Info")
-		-- 	end,
-		-- 	hl = {
-		-- 		fg = colors.blue,
-		-- 	},
-		-- },
-		-- hint = {
-		-- 	-- provider = 'diagnostic_hints',
-		-- 	provider = function()
-		-- 		return "" .. lsp_get_diag("Hint")
-		-- 	end,
-		-- 	-- left_sep = ' ',
-		-- 	enabled = function()
-		-- 		return lsp.diagnostics_exist("Hint")
-		-- 	end,
-		-- 	hl = {
-		-- 		fg = colors.cyan,
-		-- 	},
-		-- },
+		err = {
+			provider = "diagnostic_errors",
+			left_sep = " ",
+			hl = {
+				fg = colors.red,
+			},
+		},
+		warn = {
+			provider = "diagnostic_warnings",
+			left_sep = " ",
+			hl = {
+				fg = colors.yellow,
+			},
+		},
+		info = {
+			provider = "diagnostic_info",
+			left_sep = " ",
+			hl = {
+				fg = colors.blue,
+			},
+		},
+		hint = {
+			provider = "diagnostic_hints",
+			left_sep = " ",
+			hl = {
+				fg = colors.cyan,
+			},
+		},
 	},
 	lsp = {
 		name = {
 			provider = "lsp_client_names",
-			-- left_sep = ' ',
+			left_sep = " ",
 			right_sep = " ",
 			-- icon = '  ',
 			icon = "慎",
@@ -324,4 +285,50 @@ require("feline").setup({
 	},
 })
 
-feline.winbar.setup()
+local wcomponents = {
+	active = {},
+	inactive = {},
+}
+
+table.insert(wcomponents.active, {})
+table.insert(wcomponents.active, {})
+table.insert(wcomponents.inactive, {})
+table.insert(wcomponents.inactive, {})
+
+table.insert(wcomponents.active[2], {
+	info = {
+		provider = {
+			name = "file_info",
+			opts = {
+				type = "relative-short",
+				file_readonly_icon = "  ",
+				file_modified_icon = "",
+			},
+		},
+		hl = {
+			fg = colors.blue,
+			style = "bold",
+		},
+	},
+})
+
+table.insert(wcomponents.inactive[2], {
+	info = {
+		provider = {
+			name = "file_info",
+			opts = {
+				type = "relative-short",
+				file_readonly_icon = "  ",
+				file_modified_icon = "",
+			},
+		},
+		hl = {
+			fg = colors.blue,
+			style = "bold",
+		},
+	},
+})
+
+feline.winbar.setup({
+	components = wcomponents,
+})

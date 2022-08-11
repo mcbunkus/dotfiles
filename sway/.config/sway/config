@@ -30,7 +30,7 @@ gaps outer 2
 ### Output configuration
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output {
-	* bg $HOME/.config/sway/wallpapers/flowers.jpg fill
+	* bg $HOME/.config/sway/wallpapers/jellyfish.jpg stretch
 	$laptop position 0,0
 	HDMI-A-1 position 1920,0
 }
@@ -66,6 +66,6 @@ bar {
 
 include /etc/sway/config.d/*
 
-exec swayidle -w timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'swaymsg "output * dpms off"' resume \
-	'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'
+# exec swayidle -w timeout 300 'swaylock -f -c 000000' \
+#     timeout 600 'swaymsg "output * dpms off"' resume \
+# 	'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'

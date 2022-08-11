@@ -1,6 +1,5 @@
 -- Keybindings
 
-local telescope = require("telescope")
 local builtins = require("telescope.builtin")
 local telekasten = require("telekasten")
 local ntapi = require("nvim-tree.api")
@@ -8,7 +7,6 @@ local wk = require("which-key")
 
 -- leader key and mouse
 vim.g.mapleader = " "
-vim.cmd([[set mouse=a]])
 
 wk.register({
 	s = { "<cmd>so %<cr>", "Source Buffer" },
@@ -21,6 +19,12 @@ wk.register({
 wk.register({
 	H = { "<cmd>bprevious<cr>", "Previous Buffer" },
 	L = { "<cmd>bnext<cr>", "Next Buffer" },
+	K = { vim.lsp.buf.hover, "Show Documentation" },
+	g = {
+		i = { vim.lsp.buf.implementation, "Go To Implementation" },
+		d = { vim.lsp.buf.definition, "Go To Definition" },
+		D = { vim.lsp.buf.declaration, "Go To Declaration" },
+	},
 })
 -- window management
 vim.keymap.set({ "n", "i" }, "<c-h>", "<c-w>h")
@@ -42,6 +46,7 @@ wk.register({
 	f = {
 		name = "Telescope",
 		f = { builtins.find_files, "Find Files" },
+		i = { builtins.git_files, "Find Git Files" },
 		g = { builtins.live_grep, "Grep Workspace" },
 		b = { builtins.buffers, "Buffers" },
 		c = { colorschemes, "Colorschemes" },
@@ -54,7 +59,9 @@ wk.register({
 		d = { open_configs, "Edit Config" },
 	},
 	l = {
-		name = "Telescope LSP",
+		name = "LSP",
+		a = { vim.lsp.buf.code_action, "Code Action" },
+		r = { vim.lsp.buf.rename, "Rename" },
 		u = { builtins.lsp_references, "Find References" },
 		d = { builtins.lsp_document_symbols, "Document Symbols" },
 		w = { builtins.lsp_workspace_symbols, "Workspace Symbols" },
@@ -85,7 +92,7 @@ wk.register({
 		d = { telekasten.find_daily_notes, "Find Daily Notes" },
 		s = { telekasten.search_notes, "Search Notes" },
 		g = { telekasten.follow_link, "Follow Link" },
-		k = { telekasten.insert_link, "Insert Link" },
+		i = { telekasten.insert_link, "Insert Link" },
 		b = { telekasten.show_backlinks, "Show Backlinks" },
 		t = { telekasten.show_tags, "Show Tags" },
 		c = { telekasten.show_calendar, "Show Calendar" },
