@@ -21,6 +21,7 @@ return require("packer").startup(function(use)
 	-- colorschemes
 	use({ "FrenzyExists/aquarium-vim" })
 	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "tanvirtin/monokai.nvim" })
 
 	-- completion stuff
 	use({
@@ -44,8 +45,14 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
-	-- using packer.nvim
-	use({ "akinsho/bufferline.nvim", tag = "v2.*", requires = "kyazdani42/nvim-web-devicons" })
+	use({
+		"akinsho/bufferline.nvim",
+		tag = "v2.*",
+		requires = "kyazdani42/nvim-web-devicons",
+		config = function()
+			require("bufferline").setup({})
+		end,
+	})
 
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 
@@ -53,16 +60,36 @@ return require("packer").startup(function(use)
 
 	use({
 		"kyazdani42/nvim-tree.lua",
-		requires = {
-			"kyazdani42/nvim-web-devicons", -- optional, for file icons
-		},
+		requires = { "kyazdani42/nvim-web-devicons" },
+		config = function()
+			require("nvim-tree").setup({
+				view = {
+					hide_root_folder = true,
+				},
+			})
+		end,
 	})
 
-	use({ "windwp/nvim-autopairs" })
+	use({
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup()
+		end,
+	})
 
-	use({ "numToStr/Comment.nvim" })
+	use({
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	})
 
-	use({ "ray-x/lsp_signature.nvim" })
+	use({
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("lsp_signature").setup()
+		end,
+	})
 
 	use({
 		"lewis6991/gitsigns.nvim",
@@ -71,7 +98,16 @@ return require("packer").startup(function(use)
 		end,
 	})
 
-	use({ "folke/which-key.nvim" })
+	use({
+		"folke/which-key.nvim",
+		config = function()
+			require("which-key").setup({
+				layout = {
+					spacing = 5,
+				},
+			})
+		end,
+	})
 
 	use({
 		"renerocksai/telekasten.nvim",

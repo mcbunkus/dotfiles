@@ -1,6 +1,7 @@
-local ok, feline = pcall(require, "feline")
-if not ok then
-	return
+local feline = require("feline")
+
+if vim.o.termguicolors == false then
+	vim.o.termguicolors = true
 end
 
 local colors = {
