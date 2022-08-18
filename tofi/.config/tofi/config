@@ -1,13 +1,13 @@
 font = "/home/munkus/.local/share/fonts/JetBrains Mono Regular Nerd Font Complete.ttf"
-font-size = 20
+font-size = 16
 height = 25%
 width = 30%
 border-width = 3
 outline-width = 0
-padding-left = 5%
-padding-top = 5%
+padding-left = 1%
+padding-top = 1%
 result-spacing = 8
-num-results = 4
+num-results = 8
 background-color = "#1a1a24"
 border-color = "#ebb9b9"
 text-color = "#a7b7d6"

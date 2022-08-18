@@ -1,18 +1,14 @@
 # Read `man 5 sway` for a complete reference.
 
-### Variables
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
+### Key bindings
+include bindings
 
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
- 
+### Variables
 # Your preferred terminal emulator
 set $term kitty
+
 set $laptop eDP-1
+
 set $font JetBrainsMono Nerd Font 10
 
 font $font
@@ -21,20 +17,19 @@ set $bg #1a1a24
 set $fg #a7b7d6
 set $br #ebb9b9
 
-
 include /etc/sway/config-vars.d/*
 
 gaps inner 8
 gaps outer 2
 
-### Output configuration
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+# Output configuration
 output {
 	* bg $HOME/.config/sway/wallpapers/jellyfish.jpg stretch
 	$laptop position 0,0
 	HDMI-A-1 position 1920,0
 }
 
+# Color stuff
 # class                 border  backgr. text    indicator child_border
 client.focused          $br     $br     $fg     $bg       $br
 client.focused_inactive $bg     $bg     $fg     $bg       $bg
@@ -45,19 +40,8 @@ client.background $bg
 
 default_border pixel 3
 
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
+# Application launcher
 set $menu tofi-drun --drun-print-exec=true | xargs swaymsg exec --
-
-### Key bindings
-include bindings
-
-## scratchpad terminal
-
-# exec $term --name=scratch_term
-# for_window [app_id="^scratch_term$"] move to scratchpad
-
 
 # Status Bar:
 bar {
@@ -66,6 +50,3 @@ bar {
 
 include /etc/sway/config.d/*
 
-# exec swayidle -w timeout 300 'swaylock -f -c 000000' \
-#     timeout 600 'swaymsg "output * dpms off"' resume \
-# 	'swaymsg "output * dpms on"' before-sleep 'swaylock -f -c 000000'

@@ -41,6 +41,10 @@ local function open_configs()
 	builtins.find_files({ cwd = "~/.config/nvim" })
 end
 
+local function open_manpages()
+	builtins.man_pages({ sections = { "ALL" } })
+end
+
 -- Telescope bindings
 wk.register({
 	f = {
@@ -57,6 +61,7 @@ wk.register({
 		s = { builtins.current_buffer_fuzzy_find, "Buffer" },
 		o = { builtins.vim_options, "Options" },
 		d = { open_configs, "Edit Config" },
+		m = { open_manpages, "Open Man Pages" },
 	},
 	l = {
 		name = "LSP",
