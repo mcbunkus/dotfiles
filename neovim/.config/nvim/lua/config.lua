@@ -16,4 +16,4 @@ vim.o.laststatus = 3
 vim.g.catppuccin_flavour = "mocha"
 
 -- set the colorscheme
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[colorscheme aquarium]])

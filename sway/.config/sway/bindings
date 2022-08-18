@@ -65,6 +65,10 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+comma workspace prev
 bindsym $mod+period workspace next
 
+# shift container over between workspaces
+bindsym $mod+Shift+comma move container to workspace prev
+bindsym $mod+Shift+period move contianer to workspace next
+
 # Switch to workspace
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -76,6 +80,7 @@ bindsym $mod+7 workspace number 7
 bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 10
+#
 # Move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1
 bindsym $mod+Shift+2 move container to workspace number 2
@@ -129,7 +134,8 @@ bindsym $mod+minus scratchpad show
 #
 # Resizing containers:
 
-set $amount 128px
+set $amount 32px
+
 mode "resize" {
 # left will shrink the containers width
 # right will grow the containers width

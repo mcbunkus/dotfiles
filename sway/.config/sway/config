@@ -29,6 +29,11 @@ output {
 	HDMI-A-1 position 1920,0
 }
 
+input type:touchpad {
+    tap enabled
+    natural_scroll enabled
+}
+
 # Color stuff
 # class                 border  backgr. text    indicator child_border
 client.focused          $br     $br     $fg     $bg       $br
