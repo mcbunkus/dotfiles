@@ -22,6 +22,7 @@ return require("packer").startup(function(use)
 	use({ "FrenzyExists/aquarium-vim" })
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use({ "tanvirtin/monokai.nvim" })
+	use({ "sainnhe/sonokai" })
 
 	-- completion stuff
 	use({

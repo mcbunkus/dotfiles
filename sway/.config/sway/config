@@ -5,7 +5,7 @@ include bindings
 
 ### Variables
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 
 set $laptop eDP-1
 
@@ -19,12 +19,12 @@ set $br #ebb9b9
 
 include /etc/sway/config-vars.d/*
 
-gaps inner 8
-gaps outer 2
+gaps inner 4
+gaps outer 4
 
 # Output configuration
 output {
-	* bg $HOME/.config/sway/wallpapers/jellyfish.jpg stretch
+	* bg $HOME/.config/sway/wallpapers/escape.png stretch
 	$laptop position 0,0
 	HDMI-A-1 position 1920,0
 }

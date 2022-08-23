@@ -1,12 +1,10 @@
 {
-    // "layer": "top", // Waybar at top layer
-    // "position": "left", // Waybar position (top|bottom|left|right)
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
     "height": 25, // Waybar height (to be removed for auto height)
-    // "width": 25, // Waybar width
-    // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "custom/media", "cpu", "memory", "temperature"],
+    "modules-left": ["sway/workspaces", "custom/media", "cpu", "memory", "temperature", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/clock", "pulseaudio", "network", "backlight", "battery", "tray"],
+    "modules-right": ["pulseaudio", "network", "backlight", "battery", "custom/clock", "tray"],
     // Modules configuration
     "sway/workspaces": {
         "disable-scroll": true,
@@ -28,7 +26,7 @@
         }
     },
     "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
+        "format": "{}"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -41,13 +39,12 @@
         "spacing": 0
     },
     "custom/clock": {
-        "exec": "date +'%H:%M:%S'",
-        "format": "{} ",
+        "exec": "date +'%I:%M:%S %p'",
+        "format": "{}",
         "interval": 1
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false
+        "format": "{usage}% "
     },
     "memory": {
         "format": "{}% "

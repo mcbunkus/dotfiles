@@ -8,11 +8,12 @@
 }
 
 window#waybar {
-  background-color: transparent;
+  background-color: #141414;
   border-bottom: none;
   color: #a7b7d6;
   transition-property: background-color;
   transition-duration: 0.5s;
+  margin: 12px;
 }
 
 window#waybar.hidden {
