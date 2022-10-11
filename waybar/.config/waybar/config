@@ -2,7 +2,7 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar position (top|bottom|left|right)
     "height": 25, // Waybar height (to be removed for auto height)
-    "modules-left": ["sway/workspaces", "custom/media", "cpu", "memory", "temperature", "sway/mode"],
+    "modules-left": ["sway/workspaces", "cpu", "memory", "temperature", "custom/media", "sway/mode"],
     "modules-center": ["sway/window"],
     "modules-right": ["pulseaudio", "network", "backlight", "battery", "custom/clock", "tray"],
     // Modules configuration
@@ -106,7 +106,6 @@
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
-        "max-length": 40,
         "format-icons": {
             "spotify": "",
             "default": ""

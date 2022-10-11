@@ -87,11 +87,11 @@ require("telekasten").setup({
 	tag_notation = "#tag",
 
 	-- command palette theme: dropdown (window) or ivy (bottom panel)
-	command_palette_theme = "ivy",
+	command_palette_theme = "dropdown",
 
 	-- tag list theme:
 	-- get_cursor: small tag list at cursor; ivy and dropdown like above
-	show_tags_theme = "ivy",
+	show_tags_theme = "dropdown",
 
 	-- when linking to a note in subdir/, create a [[subdir/title]] link
 	-- instead of a [[title only]] link

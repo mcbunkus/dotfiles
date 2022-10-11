@@ -62,6 +62,7 @@ wk.register({
 		o = { builtins.vim_options, "Options" },
 		d = { open_configs, "Edit Config" },
 		m = { open_manpages, "Open Man Pages" },
+		q = { builtins.symbols, "Find Symbol" },
 	},
 	l = {
 		name = "LSP",
