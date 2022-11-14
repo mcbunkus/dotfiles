@@ -5,7 +5,7 @@ local cmp_lsp = require("cmp_nvim_lsp")
 
 -- Setup lspconfig.
 local client_cp = vim.lsp.protocol.make_client_capabilities()
-local capabilities = cmp_lsp.update_capabilities(client_cp)
+local capabilities = cmp_lsp.default_capabilities(client_cp)
 
 mason.setup()
 mason_lspconf.setup()

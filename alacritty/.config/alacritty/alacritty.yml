@@ -1,5 +1,4 @@
 window:
-  decorations: None
   gtk_theme_variant: dark
 
 # Font configuration
@@ -7,8 +6,7 @@ font:
   normal:
     family: "JetBrainsMono Nerd Font"
 
-
-# theme 
+# theme
 # --| Frenzy's Alacritty |-- #
 
 # Using Aquarium
@@ -20,80 +18,78 @@ font:
 schemes:
   aquarium_dark: &dark
     primary:
-      background:        &aquarium_bg '#20202A'
-      foreground:        '#63718B'
-      bright_foreground: '#a0a8b6'
-      dim_foreground:    '#4c5664'
+      background: &aquarium_bg "#20202A"
+      foreground: "#63718B"
+      bright_foreground: "#a0a8b6"
+      dim_foreground: "#4c5664"
 
     cursor:
-      cursor: '#b8dceb'
-      text: '#20202a'
+      cursor: "#b8dceb"
+      text: "#20202a"
 
     vi_mode_cursor:
-      cursor: '#E8CCA7'
+      cursor: "#E8CCA7"
 
     bright:
-      black:   '#3b3b4d'
-      red:     '#cc9b9d'
-      green:   '#a3ccad'
-      yellow:  '#d1ba97'
-      blue:    '#B8C9EA'
-      magenta: '#c497b3'
-      cyan:    '#95C2D1'
-      white:   '#63718B'
+      black: "#3b3b4d"
+      red: "#cc9b9d"
+      green: "#a3ccad"
+      yellow: "#d1ba97"
+      blue: "#B8C9EA"
+      magenta: "#c497b3"
+      cyan: "#95C2D1"
+      white: "#63718B"
 
     normal:
-      black:   '#44495E'
-      red:     '#ebb9b9'
-      green:   '#caf6bb'
-      yellow:  '#ebe3b9'
-      blue:    '#cddbf9'
-      magenta: '#f6bbe7'
-      cyan:    '#b8dceb'
-      white:   '#C6D0E9'
+      black: "#44495E"
+      red: "#ebb9b9"
+      green: "#caf6bb"
+      yellow: "#ebe3b9"
+      blue: "#cddbf9"
+      magenta: "#f6bbe7"
+      cyan: "#b8dceb"
+      white: "#C6D0E9"
 
   aquarium_light: &light
     primary:
-      background:        &aquarium_bg '#E6E6F1'
-      foreground:        '#708190'
-      bright_foreground: '#9CA6B9'
-      dim_foreground:    '#7F8E9D'
+      background: &aquarium_bg "#E6E6F1"
+      foreground: "#708190"
+      bright_foreground: "#9CA6B9"
+      dim_foreground: "#7F8E9D"
 
     cursor:
-      cursor: '#829FB0'
+      cursor: "#829FB0"
 
     vi_mode_cursor:
-      cursor: '#6A8CBC'
+      cursor: "#6A8CBC"
 
     bright:
-      black:   '#414560'
-      red:     '#B7435E'
-      green:   '#7e8f80'
-      yellow:  '#D88B72'
-      blue:    '#6E7EBF'
-      magenta: '#7170C2'
-      cyan:    '#728A9A'
-      white:   '#CCCBD9'
+      black: "#414560"
+      red: "#B7435E"
+      green: "#7e8f80"
+      yellow: "#D88B72"
+      blue: "#6E7EBF"
+      magenta: "#7170C2"
+      cyan: "#728A9A"
+      white: "#CCCBD9"
 
     normal:
-      black:   '#313449'
-      red:     '#C34864'
-      green:   '#7D9685'
-      yellow:  '#DE956F'
-      blue:    '#6A8CBC'
-      magenta: '#8787BF'
-      cyan:    '#829FB0'
-      white:   '#D5D4E0'
+      black: "#313449"
+      red: "#C34864"
+      green: "#7D9685"
+      yellow: "#DE956F"
+      blue: "#6A8CBC"
+      magenta: "#8787BF"
+      cyan: "#829FB0"
+      white: "#D5D4E0"
 
 # Change to dark
-colors:
-  *dark
+colors: *dark
 
 tabspaces: 4
 
 env:
-  WINIT_X11_SCALE_FACTOR: '1.0'
+  WINIT_X11_SCALE_FACTOR: "1.0"
 
 cursor:
   style: underline
-
