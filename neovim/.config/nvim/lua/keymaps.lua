@@ -12,8 +12,10 @@ wk.register({
 	s = { "<cmd>so %<cr>", "Source Buffer" },
 	q = { "<cmd>close<cr>", "Close Window" },
 	d = { "<cmd>bp<bar>bd#<cr>", "Delete Buffer" },
-	j = { "<cmd>split<bar>wincmd J<cr>", "Split Down" },
-	k = { "<cmd>vsplit<bar>wincmd L<cr>", "Split Right" },
+	h = { "<cmd>aboveleft vsplit<cr>", "Split Left" },
+	j = { "<cmd>split<cr>", "Split Down" },
+	k = { "<cmd>aboveleft split<cr>", "Split Up" },
+	l = { "<cmd>vsplit<cr>", "Split Right" },
 }, { prefix = "<leader>" })
 
 wk.register({
@@ -64,7 +66,7 @@ wk.register({
 		m = { open_manpages, "Open Man Pages" },
 		q = { builtins.symbols, "Find Symbol" },
 	},
-	l = {
+	a = {
 		name = "LSP",
 		a = { vim.lsp.buf.code_action, "Code Action" },
 		r = { vim.lsp.buf.rename, "Rename" },

@@ -7,10 +7,9 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.scrolloff = 25
 vim.o.termguicolors = true
-vim.o.laststatus = 3
 
 vim.g.sonokai_style = "shusia"
-vim.cmd([[colorscheme sonokai]])
+vim.cmd([[colorscheme aquarium]])
 
 -- temporary fix for annoying clangd message
 local notify = vim.notify

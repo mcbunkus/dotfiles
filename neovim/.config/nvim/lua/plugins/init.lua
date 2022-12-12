@@ -3,7 +3,7 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd([[packadd packer.nvim]])
 
-return require("packer").startup(function(use)
+local startup = require("packer").startup(function(use)
 	-- Packer can manage itself
 	use("wbthomason/packer.nvim")
 
@@ -24,6 +24,12 @@ return require("packer").startup(function(use)
 	use({ "tanvirtin/monokai.nvim" })
 	use({ "sainnhe/sonokai" })
 
+	-- status line
+	use {
+		'nvim-lualine/lualine.nvim',
+		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+	}
+
 	-- completion stuff
 	use({
 		"hrsh7th/nvim-cmp",
@@ -37,8 +43,6 @@ return require("packer").startup(function(use)
 			"hrsh7th/cmp-nvim-lua",
 		},
 	})
-
-	use({ "feline-nvim/feline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
 	use({
 		"nvim-telescope/telescope.nvim",
@@ -118,8 +122,6 @@ return require("packer").startup(function(use)
 		},
 	})
 
-	use({ "glepnir/dashboard-nvim" })
-
 	use({
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit for the latest features
@@ -129,14 +131,19 @@ return require("packer").startup(function(use)
 			})
 		end,
 	})
-	use({
-		"ellisonleao/glow.nvim",
-		config = function()
-			require("glow").setup({})
-		end,
-	})
 
 	use({
 		"nvim-telescope/telescope-symbols.nvim",
 	})
 end)
+
+require("plugins.mason")
+require("plugins.null-ls")
+require("plugins.nvim-cmp")
+require("plugins.nvim-treesitter")
+require("plugins.telekasten")
+require("plugins.telescope")
+require("plugins.toggleterm")
+require("plugins.lualine")
+
+return startup

@@ -34,6 +34,7 @@ null_ls.setup({
 		-- bash stuff
 		null_ls.builtins.formatting.shfmt,
 		null_ls.builtins.diagnostics.shellcheck,
+		null_ls.builtins.formatting.gofumpt
 	},
 
 	-- this sets up formatting on save
