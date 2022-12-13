@@ -4,12 +4,39 @@
 vim.cmd([[packadd packer.nvim]])
 
 local startup = require("packer").startup(function(use)
-	-- Packer can manage itself
+	-- basics and UI stuff --
 	use("wbthomason/packer.nvim")
 
-	-- Post-install/update hook with neovim command
+	-- colorschemes --
+	use({ "FrenzyExists/aquarium-vim" })
+	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "sainnhe/sonokai" })
+
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 
+	-- status line --
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
+
+	use({
+		"nvim-telescope/telescope.nvim",
+		tag = "0.1.0",
+		requires = { "nvim-lua/plenary.nvim" },
+	})
+
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = { "kyazdani42/nvim-web-devicons" },
+		config = function()
+			require("nvim-tree").setup({})
+		end,
+	})
+
+	use("nvim-tree/nvim-web-devicons")
+
+	-- language server stuff --
 	use({
 		"williamboman/mason.nvim",
 		requires = {
@@ -18,19 +45,14 @@ local startup = require("packer").startup(function(use)
 		},
 	})
 
-	-- colorschemes
-	use({ "FrenzyExists/aquarium-vim" })
-	use({ "catppuccin/nvim", as = "catppuccin" })
-	use({ "tanvirtin/monokai.nvim" })
-	use({ "sainnhe/sonokai" })
-
-	-- status line
 	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("lsp_signature").setup()
+		end,
 	})
 
-	-- completion stuff
+	-- completion stuff --
 	use({
 		"hrsh7th/nvim-cmp",
 		requires = {
@@ -44,27 +66,11 @@ local startup = require("packer").startup(function(use)
 		},
 	})
 
-	use({
-		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
-		requires = { "nvim-lua/plenary.nvim" },
-	})
-
 	use({ "jose-elias-alvarez/null-ls.nvim" })
 
-	use({ "akinsho/toggleterm.nvim" })
+	-- tools --
 
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = { "kyazdani42/nvim-web-devicons" },
-		config = function()
-			require("nvim-tree").setup({
-				view = {
-					hide_root_folder = true,
-				},
-			})
-		end,
-	})
+	use({ "akinsho/toggleterm.nvim" })
 
 	use({
 		"windwp/nvim-autopairs",
@@ -77,13 +83,6 @@ local startup = require("packer").startup(function(use)
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup()
-		end,
-	})
-
-	use({
-		"ray-x/lsp_signature.nvim",
-		config = function()
-			require("lsp_signature").setup()
 		end,
 	})
 
@@ -112,13 +111,6 @@ local startup = require("packer").startup(function(use)
 			require("nvim-surround").setup({
 				-- Configuration here, or leave empty to use defaults
 			})
-		end,
-	})
-
-	use({
-		"nvim-telescope/telescope-symbols.nvim",
-		config = function()
-			require("telescope-symbols")
 		end,
 	})
 end)

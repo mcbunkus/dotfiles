@@ -3,7 +3,7 @@ local mason_lspconf = require("mason-lspconfig")
 local lspconfig = require("lspconfig")
 local cmp_lsp = require("cmp_nvim_lsp")
 
--- Setup lspconfig.
+-- setup lspconfig --
 local client_cp = vim.lsp.protocol.make_client_capabilities()
 local capabilities = cmp_lsp.default_capabilities(client_cp)
 
@@ -30,7 +30,7 @@ mason_lspconf.setup_handlers({
 	["marksman"] = function()
 		lspconfig.marksman.setup({
 			settings = {
-				filetypes = { "markdown", "telekasten" },
+				filetypes = { "markdown" },
 			},
 		})
 	end,

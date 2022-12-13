@@ -1,114 +1,109 @@
 -- Keybindings
 
-local builtins = require("telescope.builtin")
-local telekasten = require("telekasten")
+local telescope = require("telescope.builtin")
 local ntapi = require("nvim-tree.api")
 local wk = require("which-key")
+
+-- wrapper for enabling preview of colorschemes
+local function colorschemes()
+	telescope.colorscheme({ enable_preview = true })
+end
+
+local function open_configs()
+	telescope.find_files({ cwd = "~/.config/nvim" })
+end
+
+local function open_manpages()
+	telescope.man_pages({ sections = { "ALL" } })
+end
+
+local function find_todos()
+	telescope.grep_string({ search = "TODO" })
+end
 
 -- leader key and mouse
 vim.g.mapleader = " "
 
-wk.register({
-	s = { "<cmd>so %<cr>", "Source Buffer" },
-	q = { "<cmd>close<cr>", "Close Window" },
-	d = { "<cmd>bp<bar>bd#<cr>", "Delete Buffer" },
-	h = { "<cmd>aboveleft vsplit<cr>", "Split Left" },
-	j = { "<cmd>split<cr>", "Split Down" },
-	k = { "<cmd>aboveleft split<cr>", "Split Up" },
-	l = { "<cmd>vsplit<cr>", "Split Right" },
-}, { prefix = "<leader>" })
-
-wk.register({
-	H = { "<cmd>bprevious<cr>", "Previous Buffer" },
-	L = { "<cmd>bnext<cr>", "Next Buffer" },
-	K = { vim.lsp.buf.hover, "Show Documentation" },
-	g = {
-		i = { vim.lsp.buf.implementation, "Go To Implementation" },
-		d = { vim.lsp.buf.definition, "Go To Definition" },
-		D = { vim.lsp.buf.declaration, "Go To Declaration" },
-	},
-})
 -- window management
 vim.keymap.set({ "n", "i" }, "<c-h>", "<c-w>h")
 vim.keymap.set({ "n", "i" }, "<c-j>", "<c-w>j")
 vim.keymap.set({ "n", "i" }, "<c-k>", "<c-w>k")
 vim.keymap.set({ "n", "i" }, "<c-l>", "<c-w>l")
 
--- wrapper for enabling preview of colorschemes
-local function colorschemes()
-	builtins.colorscheme({ enable_preview = true })
-end
+wk.register({
+	s = { "<cmd>so %<cr>", "source buffer" },
+	q = { "<cmd>close<cr>", "close window" },
+	d = { "<cmd>bp<bar>bd#<cr>", "delete buffer" },
+	h = { "<cmd>aboveleft vsplit<cr>", "split left" },
+	j = { "<cmd>split<cr>", "split down" },
+	k = { "<cmd>aboveleft split<cr>", "split up" },
+	l = { "<cmd>vsplit<cr>", "split right" },
+}, { prefix = "<leader>" })
 
-local function open_configs()
-	builtins.find_files({ cwd = "~/.config/nvim" })
-end
+wk.register({
+	Q = { "<cmd>qa<cr>", "exit neovim" },
+	H = { "<cmd>bprevious<cr>", "previous buffer" },
+	L = { "<cmd>bnext<cr>", "next buffer" },
+	K = { vim.lsp.buf.hover, "show documentation" },
+	g = {
+		i = { vim.lsp.buf.implementation, "go to implementation" },
+		d = { vim.lsp.buf.definition, "go to definition" },
+		D = { vim.lsp.buf.declaration, "go to declaration" },
+	},
+})
 
-local function open_manpages()
-	builtins.man_pages({ sections = { "ALL" } })
-end
-
--- Telescope bindings
+-- Telescope and language server bindings
 wk.register({
 	f = {
-		name = "Telescope",
-		f = { builtins.find_files, "Find Files" },
-		i = { builtins.git_files, "Find Git Files" },
-		g = { builtins.live_grep, "Grep Workspace" },
-		b = { builtins.buffers, "Buffers" },
-		c = { colorschemes, "Colorschemes" },
-		h = { builtins.help_tags, "Help" },
-		r = { builtins.reloader, "Reload Modules" },
-		k = { builtins.keymaps, "Keymaps" },
-		t = { builtins.tags, "Tags" },
-		s = { builtins.current_buffer_fuzzy_find, "Buffer" },
-		o = { builtins.vim_options, "Options" },
-		d = { open_configs, "Edit Config" },
-		m = { open_manpages, "Open Man Pages" },
-		q = { builtins.symbols, "Find Symbol" },
+		name = "telescope",
+		f = { telescope.find_files, "find files" },
+		i = { telescope.git_files, "find git files" },
+		g = { telescope.live_grep, "grep workspace" },
+		b = { telescope.buffers, "buffers" },
+		c = { colorschemes, "colorschemes" },
+		h = { telescope.help_tags, "help" },
+		r = { telescope.reloader, "reload modules" },
+		k = { telescope.keymaps, "keymaps" },
+		t = { find_todos, "find todos" },
+		s = { telescope.current_buffer_fuzzy_find, "buffer" },
+		o = { telescope.vim_options, "options" },
+		d = { open_configs, "edit config" },
+		m = { open_manpages, "open man pages" },
+		q = { telescope.symbols, "find symbol" },
 	},
-	a = {
-		name = "LSP",
-		a = { vim.lsp.buf.code_action, "Code Action" },
-		r = { vim.lsp.buf.rename, "Rename" },
-		u = { builtins.lsp_references, "Find References" },
-		d = { builtins.lsp_document_symbols, "Document Symbols" },
-		w = { builtins.lsp_workspace_symbols, "Workspace Symbols" },
+	c = {
+		name = "lsp",
+		a = { vim.lsp.buf.code_action, "code action" },
+		r = { vim.lsp.buf.rename, "rename" },
+		s = { telescope.lsp_document_symbols, "document symbols" },
+		w = { telescope.lsp_dynamic_workspace_symbols, "workspace symbols" },
+		d = { telescope.diagnostics, "workspace symbols" },
+		i = { telescope.lsp_implementations, "goto implementations" },
+		u = { telescope.lsp_references, "goto references" },
+	},
+	g = {
+		name = "git",
+		c = { telescope.git_commits, "commits" },
+		x = { telescope.git_bcommits, "buffer commits" },
+		b = { telescope.git_branches, "branches" },
+		s = { telescope.git_status, "status" },
 	},
 }, { prefix = "<leader>" })
 
 -- nvim-tree
 wk.register({
 	e = {
-		e = { ntapi.tree.toggle, "Toggle Nvim-Tree" },
-		f = { ntapi.tree.focus, "Focus Nvim-Tree" },
+		e = { ntapi.tree.toggle, "toggle nvim-tree" },
+		f = { ntapi.tree.focus, "focus nvim-tree" },
 	},
 }, { prefix = "<leader>" })
 
 -- toggleterm stuff
 wk.register({
-	["<M-i>"] = { "<cmd>ToggleTerm direction=float<cr>", "Toggle Floating Terminal" },
-	["<M-h>"] = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "Toggle Horizontal Terminal" },
-	["<M-v>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Toggle Vertical Terminal" },
+	["<M-i>"] = { "<cmd>ToggleTerm direction=float<cr>", "toggle floating terminal" },
+	["<M-h>"] = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "toggle horizontal terminal" },
+	["<M-v>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "toggle vertical terminal" },
 })
-
--- telekasten stuff
-wk.register({
-	n = {
-		name = "Telekasten",
-		n = { telekasten.panel, "Panel" },
-		f = { telekasten.find_notes, "Find Notes" },
-		d = { telekasten.find_daily_notes, "Find Daily Notes" },
-		s = { telekasten.search_notes, "Search Notes" },
-		g = { telekasten.follow_link, "Follow Link" },
-		i = { telekasten.insert_link, "Insert Link" },
-		b = { telekasten.show_backlinks, "Show Backlinks" },
-		t = { telekasten.show_tags, "Show Tags" },
-		c = { telekasten.show_calendar, "Show Calendar" },
-		x = { telekasten.toggle_todo, "Toggle Todo" },
-		z = { telekasten.new_note, "Create a New Note" },
-		Z = { telekasten.new_templated_note, "Create a New Note" },
-	},
-}, { prefix = "<leader>" })
 
 -- toggleterm stuff, but in terminal mode
 vim.keymap.set("t", "<A-i>", "<cmd>ToggleTerm<cr>")
