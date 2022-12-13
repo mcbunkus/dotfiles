@@ -92,3 +92,20 @@ ls.add_snippets("lua", {
 		)
 	),
 })
+
+ls.add_snippets("go", {
+	s(
+		"tys",
+		fmt(
+			[[ 
+type {} struct {{
+	{}
+}}
+	]],
+			{
+				i(1),
+				i(0),
+			}
+		)
+	),
+})

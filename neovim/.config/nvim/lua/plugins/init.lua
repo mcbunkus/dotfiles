@@ -25,10 +25,10 @@ local startup = require("packer").startup(function(use)
 	use({ "sainnhe/sonokai" })
 
 	-- status line
-	use {
-		'nvim-lualine/lualine.nvim',
-		requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-	}
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+	})
 
 	-- completion stuff
 	use({
@@ -48,15 +48,6 @@ local startup = require("packer").startup(function(use)
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.0",
 		requires = { "nvim-lua/plenary.nvim" },
-	})
-
-	use({
-		"akinsho/bufferline.nvim",
-		tag = "v2.*",
-		requires = "kyazdani42/nvim-web-devicons",
-		config = function()
-			require("bufferline").setup({})
-		end,
 	})
 
 	use({ "jose-elias-alvarez/null-ls.nvim" })
@@ -115,14 +106,6 @@ local startup = require("packer").startup(function(use)
 	})
 
 	use({
-		"renerocksai/telekasten.nvim",
-		requires = {
-			"renerocksai/calendar-vim",
-			"frabjous/knap",
-		},
-	})
-
-	use({
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit for the latest features
 		config = function()
@@ -134,6 +117,9 @@ local startup = require("packer").startup(function(use)
 
 	use({
 		"nvim-telescope/telescope-symbols.nvim",
+		config = function()
+			require("telescope-symbols")
+		end,
 	})
 end)
 
@@ -141,7 +127,6 @@ require("plugins.mason")
 require("plugins.null-ls")
 require("plugins.nvim-cmp")
 require("plugins.nvim-treesitter")
-require("plugins.telekasten")
 require("plugins.telescope")
 require("plugins.toggleterm")
 require("plugins.lualine")

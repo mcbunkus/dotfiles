@@ -9,7 +9,7 @@ vim.o.scrolloff = 25
 vim.o.termguicolors = true
 
 vim.g.sonokai_style = "shusia"
-vim.cmd([[colorscheme aquarium]])
+vim.cmd([[colorscheme sonokai]])
 
 -- temporary fix for annoying clangd message
 local notify = vim.notify
