@@ -71,13 +71,13 @@ wk.register({
 		m = { open_manpages, "open man pages" },
 		q = { telescope.symbols, "find symbol" },
 	},
-	c = {
+	p = {
 		name = "lsp",
 		a = { vim.lsp.buf.code_action, "code action" },
 		r = { vim.lsp.buf.rename, "rename" },
 		s = { telescope.lsp_document_symbols, "document symbols" },
 		w = { telescope.lsp_dynamic_workspace_symbols, "workspace symbols" },
-		d = { telescope.diagnostics, "workspace symbols" },
+		d = { telescope.diagnostics, "diagnostics" },
 		i = { telescope.lsp_implementations, "goto implementations" },
 		u = { telescope.lsp_references, "goto references" },
 	},
