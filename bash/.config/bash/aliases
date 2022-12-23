@@ -1,8 +1,6 @@
 
 # editor aliases
-alias lv="lvim"
-alias v="lvim"
-alias emc="emacs -c -a 'emacs'"
+alias v="nvim"
 
 # some more ls aliases
 alias ls="exa"

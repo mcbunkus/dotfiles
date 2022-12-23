@@ -10,7 +10,7 @@ set $term "flatpak run org.wezfurlong.wezterm"
 
 set $laptop eDP-1
 
-set $font CaskaydiaCove Nerd Font Complete Regular 10
+set $font CaskaydiaCove Nerd Font 10
 
 font $font
 
@@ -33,7 +33,7 @@ input type:touchpad {
 
 # target                 title     bg    text   indicator  border
 client.focused           $pink     $base $text  $rosewater $pink
-client.focused_inactive  $mauve    $base $text  $rosewater $mauve
+client.focused_inactive  $mauve    $base $text  $rosewater $overlay0
 client.unfocused         $mauve    $base $text  $rosewater $overlay0
 client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0

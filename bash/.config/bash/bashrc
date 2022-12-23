@@ -1,34 +1,28 @@
 #!/usr/bin/env bash
 
+source "$HOME/.config/bash/functions"
 
 # Exports
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.emacs.d/bin
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/go/bin
 
 export MANROFFOPT="-c"
 
 # Get the colors in the opened man page itself (this is for fman)
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-# Functions
-function source_path {
-    [ -f "$1" ] && source "$1"
-}
-
+export NVM_DIR="$HOME/.nvm"
 
 # Sources
 source_path "$HOME/.cargo/env"
-source_path "$HOME/.config/alacritty/extra/completions/alacritty.bash" 
+source_path "$HOME/.config/alacritty/extra/completions/alacritty.bash"
 source_path "$HOME/.config/bash/aliases"
 source_path "$HOME/.config/bash/functions"
 source_path "/usr/share/fzf/shell/key-bindings.bash"
 
-# Anything that needs to be done at the end 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 eval "$(starship init bash)"
-
