@@ -16,9 +16,6 @@ bindsym $mod+q kill
 # Start your launcher
 bindsym $mod+p exec $menu
 
-# Start Neovide
-bindsym $mod+n exec neovide
-
 bindsym $mod+z bar hidden_state toggle
 
 # Drag floating windows by holding down $mod and left mouse button.

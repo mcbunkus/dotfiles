@@ -1,19 +1,25 @@
+@import "catppuccin-mocha.css";
+
 * {
   border: none;
   border-radius: 0;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: JetBrainsMono Nerd Font;
+  font-family: CaskaydiaCove Nerd Font;
   font-size: 12px;
   min-height: 0;
 }
 
 window#waybar {
-  background-color: #141414;
+  background-color: @base;
   border-bottom: none;
-  color: #a7b7d6;
+  color: @text;
   transition-property: background-color;
   transition-duration: 0.5s;
   margin: 12px;
+}
+
+window#waybar.empty {
+  background-color: transparent;
 }
 
 window#waybar.hidden {
@@ -27,7 +33,7 @@ window#waybar.hidden {
 
 #workspaces button {
   padding: 0;
-  color: #a7b7d6;
+  color: @text;
 
   /* Use box-shadow instead of border so the text isn't offset */
   box-shadow: inset 0 -1px transparent;
@@ -37,16 +43,16 @@ window#waybar.hidden {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button:hover {
-  box-shadow: inset 0 -2px #a7b7d6;
+  box-shadow: inset 0 -2px @text;
 }
 
 #workspaces button.focused {
-  color: #ebb9b9;
+  color: @pink;
   font-weight: 900;
 }
 
 #workspaces button.urgent {
-  background-color: #de956f;
+  background-color: @red;
 }
 
 #custom-clock,
@@ -65,23 +71,23 @@ window#waybar.hidden {
   border-radius: 0px;
   padding-right: 16px;
   padding-left: 4px;
-  color: #2e3440;
+  color: @green;
 }
 
 #mode {
-  color: #ebb9b9;
+  color: @pink;
 }
 
 #window {
-  color: #ebb9b9;
+  color: @pink;
 }
 
 #battery {
-  color: #b1dba4;
+  color: @green;
 }
 
 #battery.charging {
-  color: #b8dceb;
+  color: @peach;
 }
 
 @keyframes blink {
@@ -92,7 +98,7 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
-  color: #de956f;
+  color: @red;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -105,39 +111,39 @@ label:focus {
 }
 
 #custom-clock {
-  color: #eac1c1;
+  color: @peach;
 }
 
 #cpu {
-  color: #f6bbe7;
+  color: @lavender;
 }
 
 #memory {
-  color: #b8dceb;
+  color: @flamingo;
 }
 
 #backlight {
-  color: #a7b7d6;
+  color: @sky;
 }
 
 #network {
-  color: #c8cca7;
+  color: @lavender;
 }
 
 #network.disconnected {
-  color: #de956f;
+  color: @maroon;
 }
 
 #pulseaudio {
-  color: #b1dba4;
+  color: @sapphire;
 }
 
 #pulseaudio.muted {
-  color: #ddc7a1;
+  color: @sapphire;
 }
 
 #custom-media {
-  color: #2a5c45;
+  color: @green;
 }
 
 #custom-media.custom-spotify {
@@ -149,21 +155,21 @@ label:focus {
 }
 
 #temperature {
-  color: #63718b;
+  color: @sky;
 }
 
 #temperature.critical {
-  color: #de956f;
+  color: @maroon;
 }
 
 #tray {
-  color: #63718b;
+  color: @green;
 }
 
 #idle_inhibitor {
-  color: #d4be98;
+  color: @overlay0;
 }
 
 #idle_inhibitor.activated {
-  color: #89b482;
+  color: @teal;
 }

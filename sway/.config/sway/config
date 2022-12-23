@@ -1,21 +1,18 @@
-# Read `man 5 sway` for a complete reference.
+### Themes
+include catppuccin-mocha
 
 ### Key bindings
 include bindings
 
 ### Variables
 # Your preferred terminal emulator
-set $term alacritty
+set $term "flatpak run org.wezfurlong.wezterm"
 
 set $laptop eDP-1
 
-set $font JetBrainsMono Nerd Font 10
+set $font CaskaydiaCove Nerd Font Complete Regular 10
 
 font $font
-
-set $bg #1a1a24
-set $fg #a7b7d6
-set $br #ebb9b9
 
 include /etc/sway/config-vars.d/*
 
@@ -24,7 +21,7 @@ gaps outer 4
 
 # Output configuration
 output {
-	* bg $HOME/.config/sway/wallpapers/escape.png stretch
+	* bg $HOME/.config/sway/wallpapers/catppuccin/misc/Street.jpg stretch
 	$laptop position 0,0
 	HDMI-A-1 position 1920,0
 }
@@ -34,14 +31,13 @@ input type:touchpad {
     natural_scroll enabled
 }
 
-# Color stuff
-# class                 border  backgr. text    indicator child_border
-client.focused          $br     $br     $bg     $bg       $br
-client.focused_inactive $bg     $bg     $fg     $bg       $bg
-client.unfocused        $bg     $bg     $fg     $bg       $bg
-#client.urgent          $br     $br     $fg     $bg       $br #currently not implemented
-#client.placeholder     $br     $br     $fg     $bg       $br #currently not implemented
-client.background $bg
+# target                 title     bg    text   indicator  border
+client.focused           $pink     $base $text  $rosewater $pink
+client.focused_inactive  $mauve    $base $text  $rosewater $mauve
+client.unfocused         $mauve    $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
 
 default_border pixel 3
 
