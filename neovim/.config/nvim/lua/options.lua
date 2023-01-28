@@ -11,4 +11,4 @@ vim.o.scrolloff = 25
 vim.o.termguicolors = true
 
 vim.g.sonokai_style = "shusia"
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd.colorscheme("catppuccin")

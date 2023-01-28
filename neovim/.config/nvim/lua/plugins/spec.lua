@@ -4,11 +4,11 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- colorschemes --
-	use({ "FrenzyExists/aquarium-vim" })
 	use({ "catppuccin/nvim", as = "catppuccin" })
+	use({ "FrenzyExists/aquarium-vim" })
 	use({ "sainnhe/sonokai" })
 
-	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", requires = { "nvim-treesitter/playground" } })
 
 	-- status line --
 	use({
@@ -22,12 +22,7 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
-	use({
-		"kyazdani42/nvim-tree.lua",
-		requires = { "kyazdani42/nvim-web-devicons" },
-	})
-
-	use({ "glepnir/dashboard-nvim" })
+	use({ "nvim-telescope/telescope-file-browser.nvim" })
 
 	-- language server stuff --
 	use({
@@ -68,7 +63,13 @@ return require("packer").startup(function(use)
 	use({
 		"windwp/nvim-autopairs",
 		config = function()
-			require("nvim-autopairs").setup()
+			require("nvim-autopairs").setup({
+				disable_filetype = { "TelescopePrompt", "guihua", "guihua_rust", "clap_input" },
+			})
+
+			if vim.o.ft == "clap_input" and vim.o.ft == "guihua" and vim.o.ft == "guihua_rust" then
+				require("cmp").setup.buffer({ completion = { enable = false } })
+			end
 		end,
 	})
 

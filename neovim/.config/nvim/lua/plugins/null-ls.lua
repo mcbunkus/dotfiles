@@ -53,6 +53,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.shfmt,
 		null_ls.builtins.formatting.gofumpt,
+		null_ls.builtins.formatting.rustfmt,
 
 		null_ls.builtins.diagnostics.shellcheck,
 	},

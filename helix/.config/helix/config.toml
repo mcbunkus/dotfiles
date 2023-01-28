@@ -1,1 +1,20 @@
-theme = "mymonokai"
+theme = "catppuccin_mocha"
+
+[editor]
+scroll-lines = 1
+auto-format = true
+bufferline = "always"
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = []
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "|"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[keys.normal]
+C-s = ":w"
+H = ":buffer-previous"
+L = ":buffer-next"

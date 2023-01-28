@@ -11,3 +11,6 @@ alias l='ls -CF'
 # misc
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# make
+alias make="make -j8"

@@ -1,7 +1,6 @@
 -- Keybindings
 
 local telescope = require("telescope.builtin")
-local ntapi = require("nvim-tree.api")
 local wk = require("which-key")
 
 -- wrapper for enabling preview of colorschemes
@@ -31,25 +30,24 @@ vim.keymap.set({ "n", "i" }, "<c-k>", "<c-w>k")
 vim.keymap.set({ "n", "i" }, "<c-l>", "<c-w>l")
 
 wk.register({
+	["<M-h>"] = { "<cmd>aboveleft vsplit<cr>", "split left" },
+	["<M-j>"] = { "<cmd>split<cr>", "split down" },
+	["<M-k>"] = { "<cmd>aboveleft split<cr>", "split up" },
+	["<M-l>"] = { "<cmd>vsplit<cr>", "split right" },
+	["<M-d>"] = { "<cmd>bp<bar>bd#<cr>", "delete buffer" },
+	["<M-q>"] = { "<cmd>close<cr>", "close window" },
+	K = { vim.lsp.buf.hover, "show documentation" },
+})
+
+wk.register({
 	s = { "<cmd>so %<cr>", "source buffer" },
 	q = { "<cmd>close<cr>", "close window" },
-	d = { "<cmd>bp<bar>bd#<cr>", "delete buffer" },
-	h = { "<cmd>aboveleft vsplit<cr>", "split left" },
-	j = { "<cmd>split<cr>", "split down" },
-	k = { "<cmd>aboveleft split<cr>", "split up" },
-	l = { "<cmd>vsplit<cr>", "split right" },
 }, { prefix = "<leader>" })
 
 wk.register({
-	Q = { "<cmd>qa<cr>", "exit neovim" },
+	Q = { "<cmd>wqa<cr>", "exit neovim" },
 	H = { "<cmd>bprevious<cr>", "previous buffer" },
 	L = { "<cmd>bnext<cr>", "next buffer" },
-	K = { vim.lsp.buf.hover, "show documentation" },
-	g = {
-		i = { vim.lsp.buf.implementation, "go to implementation" },
-		d = { vim.lsp.buf.definition, "go to definition" },
-		D = { vim.lsp.buf.declaration, "go to declaration" },
-	},
 })
 
 -- Telescope and language server bindings
@@ -70,16 +68,7 @@ wk.register({
 		d = { open_configs, "edit config" },
 		m = { open_manpages, "open man pages" },
 		q = { telescope.symbols, "find symbol" },
-	},
-	p = {
-		name = "lsp",
-		a = { vim.lsp.buf.code_action, "code action" },
-		r = { vim.lsp.buf.rename, "rename" },
-		s = { telescope.lsp_document_symbols, "document symbols" },
-		w = { telescope.lsp_dynamic_workspace_symbols, "workspace symbols" },
-		d = { telescope.diagnostics, "diagnostics" },
-		i = { telescope.lsp_implementations, "goto implementations" },
-		u = { telescope.lsp_references, "goto references" },
+		e = { require("telescope").extensions.file_browser.file_browser, "file browser" },
 	},
 	g = {
 		name = "git",
@@ -88,20 +77,22 @@ wk.register({
 		b = { telescope.git_branches, "branches" },
 		s = { telescope.git_status, "status" },
 	},
-}, { prefix = "<leader>" })
-
--- nvim-tree
-wk.register({
-	e = {
-		e = { ntapi.tree.toggle, "toggle nvim-tree" },
-		f = { ntapi.tree.focus, "focus nvim-tree" },
+	p = {
+		name = "lsp",
+		r = { telescope.lsp_references, "references" },
+		d = { telescope.lsp_definitions, "definitions" },
+		i = { telescope.lsp_implementations, "implementations" },
+		s = { telescope.lsp_document_symbols, "document symbols" },
+		w = { telescope.lsp_dynamic_workspace_symbols, "workspace symbols" },
+		e = { telescope.diagnostics, "find diagnostics" },
 	},
+	r = { vim.lsp.buf.rename, "rename symbol" },
 }, { prefix = "<leader>" })
 
 -- toggleterm stuff
 wk.register({
 	["<M-i>"] = { "<cmd>ToggleTerm direction=float<cr>", "toggle floating terminal" },
-	["<M-h>"] = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "toggle horizontal terminal" },
+	["<M-b>"] = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "toggle horizontal terminal" },
 	["<M-v>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "toggle vertical terminal" },
 })
 

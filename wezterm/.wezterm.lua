@@ -13,4 +13,26 @@ return {
 		top = 0,
 		bottom = 0,
 	},
+	keys = {
+		{
+			key = "h",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
+		{
+			key = "j",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
+		{
+			key = "k",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
+		{
+			key = "l",
+			mods = "CTRL|SHIFT",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
+	},
 }
