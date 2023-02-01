@@ -7,6 +7,7 @@ return require("packer").startup(function(use)
 	use({ "catppuccin/nvim", as = "catppuccin" })
 	use({ "FrenzyExists/aquarium-vim" })
 	use({ "sainnhe/sonokai" })
+	use("folke/tokyonight.nvim")
 
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", requires = { "nvim-treesitter/playground" } })
 
@@ -22,7 +23,13 @@ return require("packer").startup(function(use)
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
-	use({ "nvim-telescope/telescope-file-browser.nvim" })
+	use({
+		"nvim-tree/nvim-tree.lua",
+		requires = {
+			"nvim-tree/nvim-web-devicons", -- optional, for file icons
+		},
+		tag = "nightly", -- optional, updated every week. (see issue #1193)
+	})
 
 	-- language server stuff --
 	use({

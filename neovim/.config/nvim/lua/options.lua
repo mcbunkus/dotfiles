@@ -9,6 +9,8 @@ vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.scrolloff = 25
 vim.o.termguicolors = true
+vim.o.background = "dark"
 
 vim.g.sonokai_style = "shusia"
+
 vim.cmd.colorscheme("catppuccin")

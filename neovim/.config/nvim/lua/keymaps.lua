@@ -2,6 +2,7 @@
 
 local telescope = require("telescope.builtin")
 local wk = require("which-key")
+local ntapi = require("nvim-tree.api")
 
 -- wrapper for enabling preview of colorschemes
 local function colorschemes()
@@ -68,7 +69,6 @@ wk.register({
 		d = { open_configs, "edit config" },
 		m = { open_manpages, "open man pages" },
 		q = { telescope.symbols, "find symbol" },
-		e = { require("telescope").extensions.file_browser.file_browser, "file browser" },
 	},
 	g = {
 		name = "git",
@@ -87,6 +87,12 @@ wk.register({
 		e = { telescope.diagnostics, "find diagnostics" },
 	},
 	r = { vim.lsp.buf.rename, "rename symbol" },
+	e = {
+		name = "nvim-tree",
+		e = { ntapi.tree.toggle, "toggle nvim-tree" },
+		f = { ntapi.tree.focus, "focus nvim-tree" },
+		r = { ntapi.tree.reload, "reload nvim-tree" },
+	},
 }, { prefix = "<leader>" })
 
 -- toggleterm stuff
