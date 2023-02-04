@@ -1,7 +1,12 @@
-local toggleterm = require("toggleterm")
+return {
+	"akinsho/toggleterm.nvim",
+	config = function()
+		local toggleterm = require("toggleterm")
 
-toggleterm.setup({
-	float_opts = {
-		border = "single",
-	},
-})
+		toggleterm.setup({
+			float_opts = {
+				border = "single",
+			},
+		})
+	end,
+}

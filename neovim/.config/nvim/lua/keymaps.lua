@@ -21,9 +21,6 @@ local function find_todos()
 	telescope.grep_string({ search = "TODO" })
 end
 
--- leader key and mouse
-vim.g.mapleader = " "
-
 -- window management
 vim.keymap.set({ "n", "i" }, "<c-h>", "<c-w>h")
 vim.keymap.set({ "n", "i" }, "<c-j>", "<c-w>j")
@@ -53,12 +50,12 @@ wk.register({
 
 -- Telescope and language server bindings
 wk.register({
+	b = { telescope.buffers, "search buffers" },
 	f = {
 		name = "telescope",
 		f = { telescope.find_files, "find files" },
 		i = { telescope.git_files, "find git files" },
 		g = { telescope.live_grep, "grep workspace" },
-		b = { telescope.buffers, "buffers" },
 		c = { colorschemes, "colorschemes" },
 		h = { telescope.help_tags, "help" },
 		r = { telescope.reloader, "reload modules" },

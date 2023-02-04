@@ -1,12 +1,18 @@
--- see spec.lua for packer plugins, the rest is configuration
+-- le plugins --
 
-require("plugins.spec")
-require("plugins.mason")
-require("plugins.null-ls")
-require("plugins.nvim-cmp")
-require("plugins.nvim-treesitter")
-require("plugins.telescope")
-require("plugins.nvim-tree")
-require("plugins.toggleterm")
-require("plugins.lualine")
-require("plugins.catppuccin")
+return {
+
+	-- colorschemes --
+	"FrenzyExists/aquarium-vim",
+	"sainnhe/sonokai",
+	"folke/tokyonight.nvim",
+
+	-- language server stuff --
+	"ray-x/lsp_signature.nvim",
+
+	-- tools and other stuff --
+	"windwp/nvim-autopairs",
+	"numToStr/Comment.nvim",
+	"lewis6991/gitsigns.nvim",
+	"kylechui/nvim-surround",
+}
