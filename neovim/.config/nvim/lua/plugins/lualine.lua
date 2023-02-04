@@ -14,9 +14,14 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = {},
 				lualine_c = { "filetype", "branch", "diff" },
-				lualine_x = {},
-				lualine_y = {},
-				lualine_z = { "diagnostics" },
+				lualine_x = { "diagnostics" },
+				lualine_y = {
+					{
+						require("lazy.status").updates,
+						cond = require("lazy.status").has_updates,
+					},
+				},
+				lualine_z = {},
 			},
 			tabline = {},
 			winbar = {
