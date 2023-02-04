@@ -40,6 +40,7 @@ return require("packer").startup(function(use)
 		},
 	})
 
+	-- LSP hover stuff --
 	use({
 		"ray-x/lsp_signature.nvim",
 		config = function()
