@@ -2,7 +2,6 @@
 
 local telescope = require("telescope.builtin")
 local wk = require("which-key")
-local ntapi = require("nvim-tree.api")
 
 -- wrapper for enabling preview of colorschemes
 local function colorschemes()
@@ -84,20 +83,20 @@ wk.register({
 		e = { telescope.diagnostics, "find diagnostics" },
 	},
 	r = { vim.lsp.buf.rename, "rename symbol" },
-	e = {
-		name = "nvim-tree",
-		e = { ntapi.tree.toggle, "toggle nvim-tree" },
-		f = { ntapi.tree.focus, "focus nvim-tree" },
-		r = { ntapi.tree.reload, "reload nvim-tree" },
-	},
+	--	e = {
+	--		name = "nvim-tree",
+	--		e = { ntapi.tree.toggle, "toggle nvim-tree" },
+	--		f = { ntapi.tree.focus, "focus nvim-tree" },
+	--		r = { ntapi.tree.reload, "reload nvim-tree" },
+	--	},
 }, { prefix = "<leader>" })
 
 -- toggleterm stuff
-wk.register({
-	["<M-i>"] = { "<cmd>ToggleTerm direction=float<cr>", "toggle floating terminal" },
-	["<M-b>"] = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "toggle horizontal terminal" },
-	["<M-v>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "toggle vertical terminal" },
-})
+--wk.register({
+--	["<M-i>"] = { "<cmd>ToggleTerm direction=float<cr>", "toggle floating terminal" },
+--	["<M-b>"] = { "<cmd>ToggleTerm size=20 direction=horizontal<cr>", "toggle horizontal terminal" },
+--	["<M-v>"] = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "toggle vertical terminal" },
+--})
 
 -- toggleterm stuff, but in terminal mode
 vim.keymap.set("t", "<A-i>", "<cmd>ToggleTerm<cr>")
