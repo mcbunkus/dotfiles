@@ -61,9 +61,8 @@ return {
 
 			sources = {
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" }, -- For luasnip users.
 				{ name = "nvim_lua" },
-				{ name = "orgmode" },
+				{ name = "luasnip" }, -- For luasnip users.
 			},
 		})
 

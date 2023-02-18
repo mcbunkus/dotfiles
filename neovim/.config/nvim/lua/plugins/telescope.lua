@@ -14,8 +14,15 @@ return {
 				},
 				sorting_strategy = "ascending",
 				file_ignore_patterns = {
-					"*.o",
-					"*.d",
+					"%.o",
+					"%.d",
+					"%.png",
+					"%.jpeg",
+					"%.jpg",
+					"%.svg",
+					"%.otf",
+					"%.ttf",
+					".git/",
 				},
 			},
 		})

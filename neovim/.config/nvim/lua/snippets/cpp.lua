@@ -12,9 +12,9 @@ ls.add_snippets("cpp", {
 		"fn",
 		fmt(
 			[[
-	{rt} {fname}({args}) {{
-		{body}
-	}}
+{rt} {fname}({args}) {{
+	{body}
+}}
 	]],
 			{
 				fname = i(1),
@@ -28,12 +28,12 @@ ls.add_snippets("cpp", {
 		"ifnd",
 		fmt(
 			[[
-	#ifndef {}
-	#define {}
+#ifndef {}
+#define {}
 
-	{}
+{}
 
-	#endif // {}
+#endif // {}
 	]],
 			{
 				i(1, "_HEADER_GUARD"),
@@ -48,9 +48,9 @@ ls.add_snippets("cpp", {
 		"tds",
 		fmt(
 			[[ 
-	typedef struct {{
-		{}
-	}} {};
+typedef struct {{
+	{}
+}} {};
 	]],
 			{
 				i(0),
@@ -63,19 +63,51 @@ ls.add_snippets("cpp", {
 		"cls",
 		fmt(
 			[[ 
-    class {} {{
-		private: 
-		  {}
-		public: 
-          {}() = default;
-		  ~{}() {{}}
-	}};
+class {} {{
+  private: 
+    {}
+  public: 
+    {}() = default;
+    ~{}() {{}}
+}};
  	]],
 			{
 				i(1),
 				i(0),
 				rep(1),
 				rep(1),
+			}
+		)
+	),
+	s(
+		"inf",
+		fmt(
+			[[
+class {} {{
+  public:
+	{}
+
+	virtual ~{}() = default;
+}};
+	]],
+			{
+				i(1),
+				i(0),
+				rep(1),
+			}
+		)
+	),
+	s(
+		"md",
+		fmt(
+			[[
+{} {}({}){};
+	]],
+			{
+				i(3),
+				i(1),
+				i(2),
+				i(0, " override"),
 			}
 		)
 	),

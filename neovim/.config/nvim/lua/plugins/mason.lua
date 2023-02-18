@@ -17,6 +17,8 @@ return {
 		mason.setup()
 		mason_lspconf.setup()
 
+		lspconfig.gdscript.setup({})
+
 		mason_lspconf.setup_handlers({
 			function(server)
 				lspconfig[server].setup({
