@@ -5,11 +5,11 @@ return {
 	priority = 1000,
 	opts = {
 		flavour = "macchiato",
-		custom_highlights = function(colors)
+		--[[ custom_highlights = function(colors)
 			return {
-				["@type"] = { fg = colors.pink },
+				["@type"] = { fg = colors.rosewater },
 				["@type.builtin"] = { fg = colors.mauve },
 			}
-		end,
+		end, ]]
 	},
 }
