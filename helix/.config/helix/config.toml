@@ -1,4 +1,4 @@
-theme = "catppuccin_mocha"
+theme = "catppuccin_macchiato"
 
 [editor]
 scroll-lines = 1
@@ -18,3 +18,4 @@ mode.select = "SELECT"
 C-s = ":w"
 H = ":buffer-previous"
 L = ":buffer-next"
+

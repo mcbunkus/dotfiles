@@ -34,5 +34,9 @@ return {
 			mods = "CTRL|SHIFT",
 			action = wezterm.action.DisableDefaultAssignment,
 		},
+		{
+			key = "F11",
+			action = wezterm.action.DisableDefaultAssignment,
+		},
 	},
 }
