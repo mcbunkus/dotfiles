@@ -5,11 +5,15 @@ return {
 	priority = 1000,
 	opts = {
 		flavour = "macchiato",
-		--[[ custom_highlights = function(colors)
-			return {
-				["@type"] = { fg = colors.rosewater },
-				["@type.builtin"] = { fg = colors.mauve },
-			}
-		end, ]]
+		dim_inactive = {
+			enabled = false,
+			shade = "dark",
+			percentage = 0.15,
+		},
+		color_overrides = {
+			macchiato = {
+				yellow = "#f5bde6",
+			},
+		},
 	},
 }

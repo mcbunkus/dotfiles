@@ -95,12 +95,8 @@ wk.register({
 		o = { dap.step_over, "step over" },
 		g = { dapui.toggle, "toggle dap-ui" },
 	},
-	h = {
-		name = "harpoon",
-		h = { require("harpoon.mark").add_file, "add file to harpoon" },
-		f = { require("harpoon.ui").toggle_quick_menu, "toggle harpoon quick menu" },
-	},
 	p = { telescope.commands, "commands" },
+	a = { vim.lsp.buf.code_action, "code actions" },
 }, { prefix = "<leader>" })
 
 -- toggleterm stuff

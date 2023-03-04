@@ -1,3 +1,12 @@
 [[language]]
 name = "cpp"
 auto-format = true
+
+[[language]]
+name = "rust"
+auto-format = true
+
+[[language]]
+name = "gdscript"
+roots = ["project.godot"]
+language-server = { command = "nc", args = ["localhost", "6008"], language-id = "gdscript" }

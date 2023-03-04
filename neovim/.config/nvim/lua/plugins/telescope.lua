@@ -23,6 +23,7 @@ return {
 					"%.otf",
 					"%.ttf",
 					".git/",
+					"%.tscn",
 				},
 			},
 		})
