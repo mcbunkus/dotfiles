@@ -111,4 +111,33 @@ class {} {{
 			}
 		)
 	),
+	s(
+		"inf",
+		fmt(
+			[[
+class {} {{
+  public:
+	{}
+
+	virtual ~{}() = default;
+}};
+	]],
+			{
+				i(1),
+				i(0),
+				rep(1),
+			}
+		)
+	),
+	s(
+		"co",
+		fmt(
+			[[
+std::cout << {} << std::endl;
+	]],
+			{
+				i(0),
+			}
+		)
+	),
 })

@@ -10,10 +10,10 @@ return {
 			shade = "dark",
 			percentage = 0.15,
 		},
-		color_overrides = {
-			macchiato = {
-				yellow = "#f5bde6",
-			},
-		},
+		-- color_overrides = {
+		-- 	macchiato = {
+		-- 		yellow = "#f5bde6",
+		-- 	},
+		-- },
 	},
 }

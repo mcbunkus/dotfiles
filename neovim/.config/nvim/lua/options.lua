@@ -10,4 +10,5 @@ vim.o.splitbelow = true
 vim.o.scrolloff = 25
 vim.o.termguicolors = true
 
-vim.cmd.colorscheme("catppuccin")
+vim.g.material_style = "darker"
+vim.cmd.colorscheme("material")
