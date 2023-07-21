@@ -14,17 +14,18 @@ return {
 		local client_cp = vim.lsp.protocol.make_client_capabilities()
 		local capabilities = cmp_lsp.default_capabilities(client_cp)
 
+
 		mason.setup()
 		mason_lspconf.setup()
 
-		lspconfig.gdscript.setup({})
 
 		mason_lspconf.setup_handlers({
 			function(server)
-				lspconfig[server].setup({
+				lspconfig[server].setup {
 					capabilities = capabilities,
-				})
+				}
 			end,
+
 			["lua_ls"] = function()
 				lspconfig.lua_ls.setup({
 					settings = {
@@ -33,13 +34,6 @@ return {
 								globals = { "vim" },
 							},
 						},
-					},
-				})
-			end,
-			["marksman"] = function()
-				lspconfig.marksman.setup({
-					settings = {
-						filetypes = { "markdown" },
 					},
 				})
 			end,
