@@ -1,5 +1,10 @@
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 
+tab_bar_min_tabs            1
+tab_bar_edge                bottom
+tab_bar_style               powerline
+tab_powerline_style         slanted
+tab_title_template          {title}{' :{}:'.format(num_windows) if num_windows > 1 else ''}
 
 #: Fonts {{{
 
@@ -495,7 +500,7 @@ font_size 12.0
 #: Fade the text in inactive windows by the specified amount (a number
 #: between zero and one, with zero being fully faded).
 
-hide_window_decorations yes
+hide_window_decorations no
 
 #: Hide the window decorations (title-bar and window borders) with
 #: yes. On macOS, titlebar-only can be used to only hide the titlebar.
@@ -1313,9 +1318,3 @@ macos_option_as_alt yes
 #: }}}
 
 # }}}
-
-
-# BEGIN_KITTY_THEME
-# Catppuccin-Mocha
-include current-theme.conf
-# END_KITTY_THEME

@@ -33,12 +33,6 @@ vim.keymap.set({ "n", "i" }, "<c-k>", "<c-w>k")
 vim.keymap.set({ "n", "i" }, "<c-l>", "<c-w>l")
 
 wk.register({
-	["<M-h>"] = { "<cmd>aboveleft vsplit<cr>", "split left" },
-	["<M-j>"] = { "<cmd>split<cr>", "split down" },
-	["<M-k>"] = { "<cmd>aboveleft split<cr>", "split up" },
-	["<M-l>"] = { "<cmd>vsplit<cr>", "split right" },
-	["<M-d>"] = { "<cmd>bp<bar>bd#<cr>", "delete buffer" },
-	["<M-q>"] = { "<cmd>close<cr>", "close window" },
 	K = { vim.lsp.buf.hover, "show documentation" },
 	Q = { "<cmd>wqa<cr>", "exit neovim" },
 	g = {
@@ -47,10 +41,29 @@ wk.register({
 		i = { vim.lsp.buf.implementation, "go to implementation" },
 		D = { vim.lsp.buf.declaration, "go to declaration" },
 	},
+	["<C-s>"] = {"<cmd>w<cr>", "save buffer"},
 })
 
 -- Leader bindings
 wk.register({
+	w = {
+		name = "window",
+		w = { "<C-w>w", "focus other window" },
+		h = { "<cmd>aboveleft vsplit<cr>", "split left" },
+		j = { "<cmd>split<cr>", "split down" },
+		k = { "<cmd>aboveleft split<cr>", "split up" },
+		l = { "<cmd>vsplit<cr>", "split right" },
+		d = { "<cmd>bp<bar>bd#<cr>", "delete buffer" },
+		q = { "<cmd>close<cr>", "close window" },
+		r = { "<C-w>r", "rotate windows" },
+		H = { "<C-w>H", "move left" },
+		J = { "<C-w>J", "move down" },
+		K = { "<C-w>K", "move up" },
+		L = { "<C-w>L", "move right" },
+		["="] = {"<C-w>=", "make all windows equal size"},
+		["<"] = {"<C-w><", "decrease window width"},
+		[">"] = {"<C-w>>", "increase window width"},
+	},
 	s = { "<cmd>so %<cr>", "source buffer" },
 	q = { "<cmd>close<cr>", "close window" },
 	b = { telescope.buffers, "search buffers" },
