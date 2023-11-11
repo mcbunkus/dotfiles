@@ -1,9 +1,0 @@
-# -*- mode: snippet -*-
-# name: project budget
-# uuid: project-budget
-# key: trigger-key
-# condition: t
-# --
-
-`(format-time-string "%Y/%m/%d")` * `(format-time-string "%B %Y")`
-    ($0)

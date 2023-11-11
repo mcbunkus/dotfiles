@@ -2,10 +2,13 @@
 	"layer": "top", // Waybar at top layer
 	"position": "top", // Waybar position (top|bottom|left|right)
 	"height": 25, // Waybar height (to be removed for auto height)
-	"modules-left": ["sway/workspaces", "cpu", "memory", "temperature", "custom/media", "sway/mode"],
-	"modules-center": ["sway/window"],
+	"modules-left": ["river/tags", "cpu", "memory", "temperature", "custom/media", "sway/mode"],
+	"modules-center": ["river/window"],
 	"modules-right": ["tray", "pulseaudio", "network", "backlight", "battery", "custom/clock"],
 	// Modules configuration
+	"river/tags": {
+		"num-tags": 5
+	},
 	"sway/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,

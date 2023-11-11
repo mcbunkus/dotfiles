@@ -4,7 +4,7 @@
   border: none;
   border-radius: 0;
   /* `otf-font-awesome` is required to be installed for icons */
-  font-family: CaskaydiaCove Nerd Font;
+  font-family: JetBrainsMono Nerd Font;
   font-size: 12px;
   min-height: 0;
 }
@@ -18,6 +18,35 @@ window#waybar {
   margin: 12px;
 }
 
+/* river styling */
+
+#tags {
+	padding-right: 12px;
+}
+
+#tags button {
+  padding: 0;
+  color: @text;
+
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -1px transparent;
+  padding: 0 6px;
+  font-weight: 100;
+}
+
+#tags button:hover {
+  box-shadow: inset 0 -2px @text;
+}
+
+#tags button.focused {
+  color: @pink;
+  font-weight: 900;
+}
+
+#tags button.urgent {
+  background-color: @red;
+}
+
 window#waybar.empty {
   /* background-color: transparent; */
 }
@@ -27,8 +56,8 @@ window#waybar.hidden {
 }
 
 #workspaces {
-  padding-right: 12px;
-  padding-left: 12px;
+  /* padding-right: 12px; */
+  /* padding-left: 12px; */
 }
 
 #workspaces button {
