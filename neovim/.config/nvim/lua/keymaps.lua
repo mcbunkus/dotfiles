@@ -1,9 +1,8 @@
 -- Keybindings
 
 local telescope = require("telescope.builtin")
-local dap = require("dap")
-local dapui = require("dapui")
 local wk = require("which-key")
+local oil = require("oil")
 
 -- wrapper for enabling preview of colorschemes
 local function colorschemes()
@@ -41,11 +40,12 @@ wk.register({
 		i = { vim.lsp.buf.implementation, "go to implementation" },
 		D = { vim.lsp.buf.declaration, "go to declaration" },
 	},
-	["<C-s>"] = {"<cmd>w<cr>", "save buffer"},
+	["<C-s>"] = { "<cmd>w<cr>", "save buffer" },
 })
 
 -- Leader bindings
 wk.register({
+	o = { oil.toggle_float, "toggle the oil browser" },
 	w = {
 		name = "window",
 		w = { "<C-w>w", "focus other window" },
@@ -60,9 +60,9 @@ wk.register({
 		J = { "<C-w>J", "move down" },
 		K = { "<C-w>K", "move up" },
 		L = { "<C-w>L", "move right" },
-		["="] = {"<C-w>=", "make all windows equal size"},
-		["<"] = {"<C-w><", "decrease window width"},
-		[">"] = {"<C-w>>", "increase window width"},
+		["="] = { "<C-w>=", "make all windows equal size" },
+		["<"] = { "<C-w><", "decrease window width" },
+		[">"] = { "<C-w>>", "increase window width" },
 	},
 	s = { "<cmd>so %<cr>", "source buffer" },
 	q = { "<cmd>close<cr>", "close window" },
@@ -100,14 +100,6 @@ wk.register({
 		e = { telescope.diagnostics, "find diagnostics" },
 	},
 	r = { vim.lsp.buf.rename, "rename symbol" },
-	d = {
-		name = "dap",
-		b = { dap.toggle_breakpoint, "toggle breakpoint" },
-		c = { dap.continue, "continue" },
-		i = { dap.step_into, "step into" },
-		o = { dap.step_over, "step over" },
-		g = { dapui.toggle, "toggle dap-ui" },
-	},
 	p = { telescope.commands, "commands" },
 	a = { vim.lsp.buf.code_action, "code actions" },
 }, { prefix = "<leader>" })
