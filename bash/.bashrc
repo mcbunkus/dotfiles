@@ -40,3 +40,7 @@ fi
 [[ -f "$HOME/.config/bash/bashrc" ]] && source "$HOME/.config/bash/bashrc"
 . "$HOME/.cargo/env"
 export PATH=/opt/gcc/gcc-arm-none-eabi-10.3-2021.10/bin:/home/munkus/.cargo/bin:/usr/lib64/ccache:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/munkus/.local/bin:/home/munkus/bin:/home/munkus/go/bin:/home/munkus/.emacs.d/bin:/home/munkus/.dotnet/
+
+export DOTNET_ROOT=$HOME/.dotnet
+export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+
